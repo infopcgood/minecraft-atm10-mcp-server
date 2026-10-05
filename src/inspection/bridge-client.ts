@@ -3,7 +3,9 @@ import { mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 
 export type BridgeOperation = 'capabilities' | 'registry' | 'tags' | 'recipes' | 'inventory' | 'block' | 'advancements' | 'world'
-  | 'create_inspect' | 'create_speed' | 'create_transmission' | 'create_configure_sequence' | 'create_run_sequence';
+  | 'create_inspect' | 'create_speed' | 'create_transmission' | 'create_configure_sequence' | 'create_run_sequence'
+  | 'pack_mods' | 'pack_registry' | 'pack_resources' | 'pack_resource' | 'pack_machine' | 'pack_block_data' | 'pack_entity_data' | 'pack_capabilities'
+  | 'systems_network' | 'systems_quests';
 
 /** One bounded, correlated request at a time. Both processes share a local directory. */
 export class BridgeClient {

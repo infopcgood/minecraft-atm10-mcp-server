@@ -34,7 +34,7 @@
     return n;
   }
   function page(records, args) {
-    const offset = integer(args.offset, 0, 0, 100000);
+    const offset = integer(args.offset, 0, 0, 1000000);
     const limit = integer(args.limit, 20, 1, 100);
     return { total: records.length, offset: offset, nextOffset: offset + limit < records.length ? offset + limit : null, results: records.slice(offset, offset + limit) };
   }
@@ -98,6 +98,11 @@
     const result = { dimension: dimension, x: Number(pos.getX()), y: Number(pos.getY()), z: Number(pos.getZ()),
       id: String(Registries.BLOCK.getKey(state.getBlock())), state: String(state), side: sideName,
       multiblock: status(be), capabilities: {}, errors: [] };
+    if (global.atm10McpSystems) {
+      const formation = global.atm10McpSystems.formation(be);
+      if (formation !== null && formation.error) result.errors.push('formation: ' + formation.error);
+      else if (formation !== null) result.multiblock = formation;
+    }
     // Each capability is independent: an unsupported mod must not hide the other readings.
     try {
       const items = level.getCapability(Capabilities.ItemHandler.BLOCK, pos, side);
@@ -132,6 +137,17 @@
   }
   function handle(server, operation, args) {
     const create = global.atm10McpCreate;
+    const universal = global.atm10McpUniversal;
+    const systems = global.atm10McpSystems;
+    const helpers = { locateBlock: locateBlock, integer: integer, page: page, array: array, block: block, encode: encode, stack: stack, findPlayer: findPlayer };
+    if (typeof operation === 'string' && operation.startsWith('pack_')) {
+      if (!universal) throw new Error('Install companion/atm10-universal.js and restart the server');
+      return universal.handle(server, operation, args, helpers);
+    }
+    if (typeof operation === 'string' && operation.startsWith('systems_')) {
+      if (!systems) throw new Error('Install companion/atm10-systems.js and restart the server');
+      return systems.handle(server, operation, args, helpers);
+    }
     if (typeof operation === 'string' && operation.startsWith('create_')) {
       if (!create) throw new Error('Install companion/atm10-create.js alongside atm10-inspector.js and restart the server');
       return create.handle(server, operation, args, { locateBlock: locateBlock, integer: integer });
@@ -139,8 +155,10 @@
     if (operation === 'capabilities') return { protocol: 1, target: 'Minecraft 1.21.1 / NeoForge / KubeJS 2101',
       operations: ['registry', 'tags', 'recipes', 'inventory', 'block', 'advancements', 'world'],
       create: create ? create.capabilities() : { available: false, reason: 'Optional atm10-create.js adapter is not installed' },
-      multiblockAdapters: ['mekanism', 'modern_industrialization', 'modular_machinery_reborn'],
-      limits: ['Loaded chunks and online players only', 'Capability views are side-dependent; AE2/RS networks and FTB quest progress need dedicated adapters', 'RecipeManager excludes some special mechanics such as anvil operations', 'Formation does not imply a machine is running'] };
+      universal: universal ? universal.capabilities() : { available: false, reason: 'atm10-universal.js is not installed' },
+      systems: systems ? systems.capabilities() : { available: false, reason: 'atm10-systems.js is not installed' },
+      multiblockAdapters: ['mekanism', 'modern_industrialization', 'modular_machinery_reborn'].concat(systems ? ['zerocore'] : []),
+      limits: ['Loaded chunks and online players only', 'Capability views are side-dependent; inspect installed adapter availability', 'RecipeManager excludes some special mechanics such as anvil operations', 'Formation does not imply a machine is running', 'Generic data access is not verification of every mod mechanic; use get-mod-coverage'] };
     if (operation === 'registry') {
       const reg = registry(args.kind);
       const q = String(args.query || '').toLowerCase();

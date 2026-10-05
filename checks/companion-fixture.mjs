@@ -15,7 +15,7 @@ export async function temporary(t) {
 export function iterable(values) {
   return { iterator: () => { let index = 0; return { hasNext: () => index < values.length, next: () => values[index++] }; } };
 }
-export async function companion(t, root, extraClasses = {}, server = {}, withCreate = false) {
+export async function companion(t, root, extraClasses = {}, server = {}, withCreate = false, extraScripts = []) {
   let tick;
   const classes = {
     'java.nio.file.Files': { exists: p => fs.existsSync(join(root, p)), size: p => fs.statSync(join(root, p)).size,
@@ -30,6 +30,7 @@ export async function companion(t, root, extraClasses = {}, server = {}, withCre
     } }, ServerEvents: { tick: fn => { tick = fn; } }, global: {}, console });
   vm.runInContext(await readFile(new URL('../companion/atm10-inspector.js', import.meta.url), 'utf8'), context);
   if (withCreate) vm.runInContext(await readFile(new URL('../companion/atm10-create.js', import.meta.url), 'utf8'), context);
+  for (const name of extraScripts) vm.runInContext(await readFile(new URL(`../companion/${name}.js`, import.meta.url), 'utf8'), context);
   const timer = setInterval(() => { for (let i = 0; i < 10; i++) tick({ server }); }, 10);
   t.after(() => clearInterval(timer));
   const directory = join(root, 'kubejs/export/mcp');

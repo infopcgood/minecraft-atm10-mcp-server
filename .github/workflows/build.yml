@@ -42,3 +42,6 @@ jobs:
       run: |
         node --check companion/atm10-inspector.js
         node --check companion/atm10-create.js
+        node --check companion/atm10-universal.js
+        node --check companion/atm10-systems.js
+        node --check scripts/export-runtime-audit.mjs

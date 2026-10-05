@@ -21,6 +21,7 @@
     "start": "node dist/main.js",
     "test": "ava",
     "test:inspection": "node --test checks/*.test.mjs",
+    "audit:runtime": "node scripts/export-runtime-audit.mjs",
     "lint": "eslint \"{src,tests}/**/*.ts\"",
     "lint:fix": "eslint \"{src,tests}/**/*.ts\" --fix"
   },

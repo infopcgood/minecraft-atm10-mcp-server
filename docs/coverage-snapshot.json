@@ -1,0 +1,5927 @@
+{
+  "schema": 1,
+  "auditedAt": "2026-10-05",
+  "source": {
+    "repository": "AllTheMods/ATM-10",
+    "commit": "e5e3d1d83ec6885bb9a5e9fb309fb8e9730db025",
+    "path": "config/crash_assistant/modlist.json"
+  },
+  "warning": "This repository snapshot is not an authoritative installed-mod manifest. Runtime get-mod-coverage enumerates actual loaded mods. Generic data access is not complete semantic support.",
+  "completeSupport": false,
+  "entryCount": 493,
+  "uniqueModIds": 489,
+  "duplicateModIds": [
+    "computercraft"
+  ],
+  "unidentifiedEntries": [
+    "kotlinforforge-5.12.0-all.jar",
+    "ScalableCatsForce-NeoForge-3.7.1-build-11-with-library.jar",
+    "sawmill.zip (datapack)"
+  ],
+  "mods": [
+    {
+      "id": "accelerateddecay",
+      "versions": [
+        "21.0.0"
+      ],
+      "jars": [
+        "accelerated-decay-neoforge-21.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "actuallyadditions",
+      "versions": [
+        "1.3.26"
+      ],
+      "jars": [
+        "actuallyadditions-1.3.26+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ad_astra",
+      "versions": [
+        "1.16.26"
+      ],
+      "jars": [
+        "adastra-1.21.1-1.16.26-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ad_astra_giselle_addon",
+      "versions": [
+        "8.4"
+      ],
+      "jars": [
+        "Ad-Astra-Giselle-Addon-neoforge-1.21.1-8.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "additional_lights",
+      "versions": [
+        "2.1.10"
+      ],
+      "jars": [
+        "additional_lights-neoforge-1.21-2.1.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "advanced_ae",
+      "versions": [
+        "1.6.12-1.21.1"
+      ],
+      "jars": [
+        "AdvancedAE-1.6.12-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "advancedperipherals",
+      "versions": [
+        "1.21.1-0.8.1a"
+      ],
+      "jars": [
+        "AdvancedPeripherals-1.21.1-0.8.1a.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2",
+      "versions": [
+        "19.2.17"
+      ],
+      "jars": [
+        "appliedenergistics2-19.2.17.jar"
+      ],
+      "specializedReaders": [
+        "network_contents",
+        "network_status"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2ct",
+      "versions": [
+        "1.21.1-1.1.1"
+      ],
+      "jars": [
+        "ae2ct-1.21.1-1.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2importexportcard",
+      "versions": [
+        "1.21.1-1.9.0"
+      ],
+      "jars": [
+        "ae2importexportcard-1.21.1-1.9.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2jeiintegration",
+      "versions": [
+        "1.2.1"
+      ],
+      "jars": [
+        "ae2jeiintegration-1.2.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2netanalyser",
+      "versions": [
+        "1.21-2.1.5-neoforge"
+      ],
+      "jars": [
+        "AE2NetworkAnalyzer-1.21-2.1.5-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ae2wtlib",
+      "versions": [
+        "19.5.1"
+      ],
+      "jars": [
+        "ae2wtlib-19.5.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "aeinfinitybooster",
+      "versions": [
+        "1.21.1-1.0.0.58"
+      ],
+      "jars": [
+        "aeinfinitybooster-neoforge-1.21.1-1.0.0.58.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "aether",
+      "versions": [
+        "1.5.10"
+      ],
+      "jars": [
+        "aether-1.21.1-1.5.10-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "aiimprovements",
+      "versions": [
+        "0.5.3"
+      ],
+      "jars": [
+        "AI-Improvements-1.21-0.5.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "akashictome",
+      "versions": [
+        "1.8-30"
+      ],
+      "jars": [
+        "AkashicTome-1.8-30.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "allthearcanistgear",
+      "versions": [
+        "1.21.1-21.3.2"
+      ],
+      "jars": [
+        "allthearcanistgear-1.21.1-21.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "allthecompressed",
+      "versions": [
+        "4.4.0"
+      ],
+      "jars": [
+        "allthecompressed-1.21.1-4.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "alltheleaks",
+      "versions": [
+        "1.1.13+1.21.1-neoforge"
+      ],
+      "jars": [
+        "alltheleaks-1.1.13+1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "allthemodium",
+      "versions": [
+        "3.0.1"
+      ],
+      "jars": [
+        "allthemodium-3.0.1_mc_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "alltheores",
+      "versions": [
+        "3.2.0"
+      ],
+      "jars": [
+        "alltheores-3.2.0_neoforge_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "allthetweaks",
+      "versions": [
+        "2.10.0"
+      ],
+      "jars": [
+        "allthetweaks-1.21.1-2.10.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "allthewizardgear",
+      "versions": [
+        "1.21.1-1.2.0"
+      ],
+      "jars": [
+        "allthewizardgear-1.21.1-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "almostunified",
+      "versions": [
+        "1.21.1-1.4.2"
+      ],
+      "jars": [
+        "almostunified-neoforge-1.21.1-1.4.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "amendments",
+      "versions": [
+        "1.21-2.1.10"
+      ],
+      "jars": [
+        "amendments-1.21-2.1.10-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "apotheosis",
+      "versions": [
+        "8.8.0"
+      ],
+      "jars": [
+        "Apotheosis-1.21.1-8.8.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "apothic_attributes",
+      "versions": [
+        "2.10.1"
+      ],
+      "jars": [
+        "ApothicAttributes-1.21.1-2.10.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "apothic_enchanting",
+      "versions": [
+        "1.6.2"
+      ],
+      "jars": [
+        "ApothicEnchanting-1.21.1-1.6.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "apothic_spawners",
+      "versions": [
+        "1.4.0"
+      ],
+      "jars": [
+        "ApothicSpawners-1.21.1-1.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "appflux",
+      "versions": [
+        "1.21-2.1.5-neoforge"
+      ],
+      "jars": [
+        "AppliedFlux-1.21-2.1.5-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "appleskin",
+      "versions": [
+        "3.0.9+mc1.21"
+      ],
+      "jars": [
+        "appleskin-neoforge-mc1.21-3.0.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "appmek",
+      "versions": [
+        "1.6.3"
+      ],
+      "jars": [
+        "Applied-Mekanistics-1.6.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "aquaculture",
+      "versions": [
+        "2.7.21"
+      ],
+      "jars": [
+        "Aquaculture-1.21.1-2.7.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "architectury",
+      "versions": [
+        "13.0.11"
+      ],
+      "jars": [
+        "architectury-13.0.11-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_additions",
+      "versions": [
+        "1.21.1-21.3.0"
+      ],
+      "jars": [
+        "ars_additions-1.21.1-21.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_controle",
+      "versions": [
+        "1.21.1-1.6.16"
+      ],
+      "jars": [
+        "ars_controle-1.21.1-1.6.16.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_creo",
+      "versions": [
+        "5.4.0"
+      ],
+      "jars": [
+        "ars_creo-1.21.1-5.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_elemancy",
+      "versions": [
+        "1.18.3"
+      ],
+      "jars": [
+        "ars_elemancy-1.21.1-1.18.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_elemental",
+      "versions": [
+        "0.7.10.1"
+      ],
+      "jars": [
+        "ars_elemental-1.21.1-0.7.10.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_nouveau",
+      "versions": [
+        "5.13.1"
+      ],
+      "jars": [
+        "ars_nouveau-1.21.1-5.13.1.jar"
+      ],
+      "specializedReaders": [
+        "source"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_ocultas",
+      "versions": [
+        "2.6.1"
+      ],
+      "jars": [
+        "ars_ocultas-1.21.1-2.6.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_polymorphia",
+      "versions": [
+        "1.0.3"
+      ],
+      "jars": [
+        "ars_polymorphia-1.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_technica",
+      "versions": [
+        "2.7.6"
+      ],
+      "jars": [
+        "ars_technica-1.21.1-2.7.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ars_unification",
+      "versions": [
+        "1.2.21"
+      ],
+      "jars": [
+        "ars_unification-1.2.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "arseng",
+      "versions": [
+        "2.1.1-beta"
+      ],
+      "jars": [
+        "arseng-2.1.1-beta.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "artifacts",
+      "versions": [
+        "13.2.3"
+      ],
+      "jars": [
+        "artifacts-neoforge-13.2.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "athena",
+      "versions": [
+        "4.0.6"
+      ],
+      "jars": [
+        "athena-neoforge-1.21.1-4.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "atlas_api",
+      "versions": [
+        "1.21.1-1.2.0"
+      ],
+      "jars": [
+        "atlas_api-1.21.1-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "attributefix",
+      "versions": [
+        "21.1.3"
+      ],
+      "jars": [
+        "attributefix-neoforge-1.21.1-21.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "auroral",
+      "versions": [
+        "1.21.1-1.1.2"
+      ],
+      "jars": [
+        "auroral-1.21.1-1.1.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "auroras",
+      "versions": [
+        "1.6.2"
+      ],
+      "jars": [
+        "Auroras-1.21-1.6.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "balm",
+      "versions": [
+        "21.0.65"
+      ],
+      "jars": [
+        "balm-neoforge-1.21.1-21.0.65.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bcc",
+      "versions": [
+        "21.1.8"
+      ],
+      "jars": [
+        "better-compatability-checker-neoforge-21.1.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bellsandwhistles",
+      "versions": [
+        "0.4.7-1.21.1"
+      ],
+      "jars": [
+        "bellsandwhistles-0.4.7-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betteradvancedtooltips",
+      "versions": [
+        "2101.1.0-build.5"
+      ],
+      "jars": [
+        "better-advanced-tooltips-2101.1.0-build.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betteradvancements",
+      "versions": [
+        "0.4.3.21"
+      ],
+      "jars": [
+        "BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterdeserttemples",
+      "versions": [
+        "1.21.1-NeoForge-4.1.5"
+      ],
+      "jars": [
+        "YungsBetterDesertTemples-1.21.1-NeoForge-4.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterdungeons",
+      "versions": [
+        "1.21.1-NeoForge-5.1.4"
+      ],
+      "jars": [
+        "YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterendisland",
+      "versions": [
+        "1.21.1-NeoForge-3.1.2"
+      ],
+      "jars": [
+        "YungsBetterEndIsland-1.21.1-NeoForge-3.1.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterfortresses",
+      "versions": [
+        "1.21.1-NeoForge-3.1.5"
+      ],
+      "jars": [
+        "YungsBetterNetherFortresses-1.21.1-NeoForge-3.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterjungletemples",
+      "versions": [
+        "1.21.1-NeoForge-3.1.2"
+      ],
+      "jars": [
+        "YungsBetterJungleTemples-1.21.1-NeoForge-3.1.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bettermineshafts",
+      "versions": [
+        "1.21.1-NeoForge-5.1.1"
+      ],
+      "jars": [
+        "YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betteroceanmonuments",
+      "versions": [
+        "1.21.1-NeoForge-4.1.2"
+      ],
+      "jars": [
+        "YungsBetterOceanMonuments-1.21.1-NeoForge-4.1.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterstrongholds",
+      "versions": [
+        "1.21.1-NeoForge-5.1.3"
+      ],
+      "jars": [
+        "YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "betterwitchhuts",
+      "versions": [
+        "1.21.1-NeoForge-4.1.1"
+      ],
+      "jars": [
+        "YungsBetterWitchHuts-1.21.1-NeoForge-4.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bhc",
+      "versions": [
+        "1.21.1-1.4.2"
+      ],
+      "jars": [
+        "baubley-heart-canisters-1.21.1-1.4.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bibliobiomes",
+      "versions": [
+        "1.6.1"
+      ],
+      "jars": [
+        "bibliobiomes-1.21.1-1.6.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bibliocraft",
+      "versions": [
+        "1.6.5"
+      ],
+      "jars": [
+        "bibliocraft-1.21.1-1.6.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bibliowoods",
+      "versions": [
+        "1.6.2"
+      ],
+      "jars": [
+        "bibliowoods-1.21.1-1.6.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bigreactors",
+      "versions": [
+        "1.21.1-2.4.28"
+      ],
+      "jars": [
+        "ExtremeReactors2-1.21.1-2.4.28.jar"
+      ],
+      "specializedReaders": [
+        "formation"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "biomeswevegone",
+      "versions": [
+        "2.6.0"
+      ],
+      "jars": [
+        "Oh-The-Biomes-Weve-Gone-NeoForge-2.6.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "blockui",
+      "versions": [
+        "1.0.212-1.21.1-snapshot"
+      ],
+      "jars": [
+        "blockui-1.0.212-1.21.1-snapshot.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "blueflame",
+      "versions": [
+        "1.21.1-1.1.1"
+      ],
+      "jars": [
+        "blueflame-1.21.1-1.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bookshelf",
+      "versions": [
+        "21.1.81"
+      ],
+      "jars": [
+        "bookshelf-neoforge-1.21.1-21.1.81.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "borderlesswindow",
+      "versions": [
+        "1.21.1-1.7.5_1"
+      ],
+      "jars": [
+        "borderless-neoforge-1.21.1-1.7.5_1-all.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "botanypots",
+      "versions": [
+        "21.1.44"
+      ],
+      "jars": [
+        "botanypots-neoforge-1.21.1-21.1.44.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "botanypotsmystical",
+      "versions": [
+        "21.1.12"
+      ],
+      "jars": [
+        "botanypotsmystical-neoforge-1.21.1-21.1.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "botanytrees",
+      "versions": [
+        "21.1.7"
+      ],
+      "jars": [
+        "botanytrees-neoforge-1.21.1-21.1.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "brandonscore",
+      "versions": [
+        "3.2.1.309"
+      ],
+      "jars": [
+        "BrandonsCore-1.21.1-3.2.1.309.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bridgingmod",
+      "versions": [
+        "2.6.2+1.21.1"
+      ],
+      "jars": [
+        "BridgingMod-2.6.2+1.21.1.neoforge-release.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "buildinggadgets2",
+      "versions": [
+        "1.3.9"
+      ],
+      "jars": [
+        "buildinggadgets2-1.3.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "bwncr",
+      "versions": [
+        "3.20.4"
+      ],
+      "jars": [
+        "bwncr-neoforge-1.21.1-3.20.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "byzantine",
+      "versions": [
+        "51"
+      ],
+      "jars": [
+        "Byzantine-1.21.1-51.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cabletiers",
+      "versions": [
+        "1.21.1-0.6.14"
+      ],
+      "jars": [
+        "cabletiers-neoforge-1.21.1-0.6.14.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "caelus",
+      "versions": [
+        "7.0.1+1.21.1"
+      ],
+      "jars": [
+        "caelus-neoforge-7.0.1+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "camol",
+      "versions": [
+        "1.21.1-0.3.1"
+      ],
+      "jars": [
+        "camol-1.21.1-0.3.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cataclysm",
+      "versions": [
+        "3.33"
+      ],
+      "jars": [
+        "L_Ender's Cataclysm 1.21.1-3.33.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "catjammies",
+      "versions": [
+        "1.21-1.7.1"
+      ],
+      "jars": [
+        "catjammies-1.21-1.7.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "charginggadgets",
+      "versions": [
+        "1.14.1"
+      ],
+      "jars": [
+        "charginggadgets-1.14.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "chipped",
+      "versions": [
+        "4.0.2"
+      ],
+      "jars": [
+        "chipped-neoforge-1.21.1-4.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "chisel",
+      "versions": [
+        "2.0.1+mc1.21.1"
+      ],
+      "jars": [
+        "chisel-neoforge-2.0.1+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "chromacarvings",
+      "versions": [
+        "1.21.1-0.2.0"
+      ],
+      "jars": [
+        "chromacarvings-1.21.1-0.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cleanswing",
+      "versions": [
+        "1.10"
+      ],
+      "jars": [
+        "cleanswing-1.10-1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cloth_config",
+      "versions": [
+        "15.0.140"
+      ],
+      "jars": [
+        "cloth-config-15.0.140-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cloudglass",
+      "versions": [
+        "1.0.2"
+      ],
+      "jars": [
+        "CloudGlass-1.21.1-1.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "clumps",
+      "versions": [
+        "19.0.0.1"
+      ],
+      "jars": [
+        "Clumps-neoforge-1.21.1-19.0.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cobblegengalore",
+      "versions": [
+        "1.21.1-0.2.9"
+      ],
+      "jars": [
+        "cobblegengalore-1.21.1-0.2.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cobweb",
+      "versions": [
+        "1.4.0"
+      ],
+      "jars": [
+        "cobweb-neoforge-1.21-1.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "codechickenlib",
+      "versions": [
+        "4.6.1.529"
+      ],
+      "jars": [
+        "CodeChickenLib-1.21.1-4.6.1.529.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "colorfulhearts",
+      "versions": [
+        "10.5.9"
+      ],
+      "jars": [
+        "colorfulhearts-neoforge-1.21.1-10.5.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "colorwheel",
+      "versions": [
+        "1.3.0-beta3+mc1.21.1"
+      ],
+      "jars": [
+        "colorwheel-neoforge-1.3.0-beta3+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "colorwheel_patcher",
+      "versions": [
+        "1.0.5+mc1.21.1"
+      ],
+      "jars": [
+        "colorwheel_patcher-neoforge-1.0.5+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "comforts",
+      "versions": [
+        "9.0.5+1.21.1"
+      ],
+      "jars": [
+        "comforts-neoforge-9.0.5+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "common_storage_lib",
+      "versions": [
+        "0.0.10"
+      ],
+      "jars": [
+        "common-storage-lib-neoforge-1.21.1-0.0.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "commoncapabilities",
+      "versions": [
+        "2.11.6"
+      ],
+      "jars": [
+        "commoncapabilities-1.21.1-neoforge-2.11.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "compactmachines",
+      "versions": [
+        "7.0.81"
+      ],
+      "jars": [
+        "compactmachines-neoforge-7.0.81.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "computercraft",
+      "versions": [
+        "1.113.1",
+        "1.120.2"
+      ],
+      "jars": [
+        "cc-tweaked-1.21.1-forge-1.113.1.jar",
+        "cc-tweaked-1.21.1-forge-1.120.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "connectedglass",
+      "versions": [
+        "1.1.14"
+      ],
+      "jars": [
+        "connectedglass-1.1.14-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "connectivity",
+      "versions": [
+        "7.6"
+      ],
+      "jars": [
+        "connectivity-1.21.1-7.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "constructionstick",
+      "versions": [
+        "1.5.0"
+      ],
+      "jars": [
+        "ConstructionSticks-1.21.1-1.5.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "controlling",
+      "versions": [
+        "19.0.5"
+      ],
+      "jars": [
+        "Controlling-neoforge-1.21.1-19.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cookingforblockheads",
+      "versions": [
+        "21.1.24"
+      ],
+      "jars": [
+        "cookingforblockheads-neoforge-1.21.1-21.1.24.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "copycats",
+      "versions": [
+        "3.0.9+mc.1.21.1-neoforge"
+      ],
+      "jars": [
+        "copycats-3.0.9+mc.1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "corgilib",
+      "versions": [
+        "5.0.0.9"
+      ],
+      "jars": [
+        "Corgilib-NeoForge-1.21.1-5.0.0.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cosmeticarmorreworked",
+      "versions": [
+        "1.21.1-v1-neoforge"
+      ],
+      "jars": [
+        "cosmeticarmorreworked-1.21.1-v1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "crafting_on_a_stick",
+      "versions": [
+        "1.21.0.6"
+      ],
+      "jars": [
+        "crafting_on_a_stick-1.21.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "craftingtweaks",
+      "versions": [
+        "21.1.11"
+      ],
+      "jars": [
+        "craftingtweaks-neoforge-1.21.1-21.1.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "crash_assistant",
+      "versions": [
+        "1.11.12"
+      ],
+      "jars": [
+        "CrashAssistant-neoforge-1.20.6-1.21.4-1.11.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "crashutilities",
+      "versions": [
+        "9.0.4"
+      ],
+      "jars": [
+        "crashutilities-9.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "create",
+      "versions": [
+        "6.0.10"
+      ],
+      "jars": [
+        "create-1.21.1-6.0.10.jar"
+      ],
+      "specializedReaders": [
+        "kinetics",
+        "speed_control",
+        "transmission",
+        "sequences"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "create_aquatic_ambitions",
+      "versions": [
+        "2.0.4"
+      ],
+      "jars": [
+        "create_aquatic_ambitions-1.21.1-2.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "create_dragons_plus",
+      "versions": [
+        "1.11.9"
+      ],
+      "jars": [
+        "CreateDragonsPlus-1.11.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "create_enchantment_industry",
+      "versions": [
+        "2.5.4"
+      ],
+      "jars": [
+        "create-enchantment-industry-2.5.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "create_hypertube",
+      "versions": [
+        "0.6.0"
+      ],
+      "jars": [
+        "create_hypertube-0.6.0-NEOFORGE.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "createaddition",
+      "versions": [
+        "1.7.1"
+      ],
+      "jars": [
+        "createaddition-1.7.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "creeperoverhaul",
+      "versions": [
+        "4.0.6"
+      ],
+      "jars": [
+        "CreeperOverhaul-neoforge-1.21.1-4.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cristellib",
+      "versions": [
+        "3.1.7"
+      ],
+      "jars": [
+        "cristellib-neoforge-1.21.1-3.1.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cryonicconfig",
+      "versions": [
+        "1.0.0+mc1.21.11"
+      ],
+      "jars": [
+        "cryonicconfig-neoforge-1.0.0+mc1.21.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "crystalix",
+      "versions": [
+        "3.0.1"
+      ],
+      "jars": [
+        "crystalix-3.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ctm",
+      "versions": [
+        "1.21-1.2.1+3"
+      ],
+      "jars": [
+        "CTM-1.21-1.2.1+3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ctov",
+      "versions": [
+        "3.6.3"
+      ],
+      "jars": [
+        "[Neoforge]ctov-3.6.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cucumber",
+      "versions": [
+        "8.0.16"
+      ],
+      "jars": [
+        "Cucumber-1.21.1-8.0.16.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cupboard",
+      "versions": [
+        "4.2"
+      ],
+      "jars": [
+        "cupboard-1.21.1-4.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "curios",
+      "versions": [
+        "9.5.1+1.21.1"
+      ],
+      "jars": [
+        "curios-neoforge-9.5.1+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "cyclopscore",
+      "versions": [
+        "1.30.0"
+      ],
+      "jars": [
+        "cyclopscore-1.21.1-neoforge-1.30.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "darkmodeeverywhere",
+      "versions": [
+        "1.21.1-1.4.0"
+      ],
+      "jars": [
+        "darkmodeeverywhere-neoforge-1.21.1-1.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "deeperdarker",
+      "versions": [
+        "1.4.1"
+      ],
+      "jars": [
+        "deeperdarker-neoforge-1.21.1-1.4.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "deimos",
+      "versions": [
+        "2.7"
+      ],
+      "jars": [
+        "deimos-1.21.1-neoforge-2.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dimstorage",
+      "versions": [
+        "9.1.1"
+      ],
+      "jars": [
+        "DimStorage-1.21.1-9.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "disenchanting_table",
+      "versions": [
+        "5.0.2"
+      ],
+      "jars": [
+        "disenchanting_table-merged-1.21.1-5.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "domum_ornamentum",
+      "versions": [
+        "1.0.236-snapshot"
+      ],
+      "jars": [
+        "domum-ornamentum-1.0.236-snapshot-main.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "draconicevolution",
+      "versions": [
+        "3.1.4.633"
+      ],
+      "jars": [
+        "Draconic-Evolution-1.21.1-3.1.4.633.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "drippyloadingscreen",
+      "versions": [
+        "3.1.5"
+      ],
+      "jars": [
+        "drippyloadingscreen_neoforge_3.1.5_MC_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dummmmmmy",
+      "versions": [
+        "1.21-2.1.2"
+      ],
+      "jars": [
+        "dummmmmmy-1.21-2.1.2-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dungeoncrawl",
+      "versions": [
+        "2.3.17"
+      ],
+      "jars": [
+        "DungeonCrawl-NeoForge-1.21-2.3.17.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dungeons_arise",
+      "versions": [
+        "2.1.68"
+      ],
+      "jars": [
+        "DungeonsArise-1.21.1-2.1.68-release.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dyenamics",
+      "versions": [
+        "1.21.1-3.4.2"
+      ],
+      "jars": [
+        "dyenamics-1.21.1-3.4.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dyenamicsandfriends",
+      "versions": [
+        "1.21.1-2.2.2"
+      ],
+      "jars": [
+        "dyenamicsandfriends-1.21.1-2.2.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "dysoncubeproject",
+      "versions": [
+        "1.0.5"
+      ],
+      "jars": [
+        "dysoncubeproject-1.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "easy_villagers",
+      "versions": [
+        "1.21.1-1.1.42"
+      ],
+      "jars": [
+        "easy-villagers-neoforge-1.21.1-1.1.42.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "edivadlib",
+      "versions": [
+        "3.0.0"
+      ],
+      "jars": [
+        "EdivadLib-1.21-3.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "elevatorid",
+      "versions": [
+        "1.21.1-1.11.4"
+      ],
+      "jars": [
+        "elevatorid-neoforge-1.21.1-1.11.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "enchdesc",
+      "versions": [
+        "21.1.11"
+      ],
+      "jars": [
+        "enchdesc-neoforge-1.21.1-21.1.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "enderdrives",
+      "versions": [
+        "1.5.23"
+      ],
+      "jars": [
+        "enderdrives-neoforge-1.21.1-1.5.23.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "enderio",
+      "versions": [
+        "8.2.12-beta"
+      ],
+      "jars": [
+        "enderio-8.2.12-beta.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "endermanoverhaul",
+      "versions": [
+        "2.0.3"
+      ],
+      "jars": [
+        "endermanoverhaul-neoforge-1.21.1-2.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "enderstorage",
+      "versions": [
+        "2.13.0.191"
+      ],
+      "jars": [
+        "EnderStorage-1.21.1-2.13.0.191.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "energymeter",
+      "versions": [
+        "1.21.1-0.5.2"
+      ],
+      "jars": [
+        "energymeter-neoforge-1.21.1-0.5.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "entangled",
+      "versions": [
+        "1.3.21"
+      ],
+      "jars": [
+        "entangled-1.3.21-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "eternal_starlight",
+      "versions": [
+        "0.9.1+1.21.1+neoforge"
+      ],
+      "jars": [
+        "eternalstarlight-0.9.1+1.21.1+neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "euphoria_patcher",
+      "versions": [
+        "1.10.5-r5.9.3-neoforge"
+      ],
+      "jars": [
+        "EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "everythingcopper",
+      "versions": [
+        "1.21.1-2.4.5"
+      ],
+      "jars": [
+        "everythingcopper-1.21.1-2.4.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "evilcraft",
+      "versions": [
+        "1.2.96"
+      ],
+      "jars": [
+        "evilcraft-1.21.1-neoforge-1.2.96-1106.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "expandedae",
+      "versions": [
+        "2.1.3"
+      ],
+      "jars": [
+        "expandedae-2.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "experiencelib",
+      "versions": [
+        "1.2.1"
+      ],
+      "jars": [
+        "experiencelib-1.21.1-1.2.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "explorerscompass",
+      "versions": [
+        "1.21.1-3.4.0-neoforge"
+      ],
+      "jars": [
+        "ExplorersCompass-1.21.1-3.4.0-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "explorify",
+      "versions": [
+        "1.6.5"
+      ],
+      "jars": [
+        "Explorify v1.6.5.mod.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "extended_industrialization",
+      "versions": [
+        "1.16.2-1.21.1"
+      ],
+      "jars": [
+        "extended-industrialization-1.16.2-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "extendedae",
+      "versions": [
+        "1.21-2.2.38-neoforge"
+      ],
+      "jars": [
+        "ExtendedAE-1.21-2.2.38-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "extradisks",
+      "versions": [
+        "1.21.1-4.0.15"
+      ],
+      "jars": [
+        "ExtraDisks-1.21.1-4.0.15.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "extrastorage",
+      "versions": [
+        "5.0.10"
+      ],
+      "jars": [
+        "ExtraStorage-1.21.1-5.0.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "extremesoundmuffler",
+      "versions": [
+        "3.56"
+      ],
+      "jars": [
+        "ExtremeSoundMuffler-3.56_NeoForge-1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "factory_blocks",
+      "versions": [
+        "1.4.0+mc1.21.1"
+      ],
+      "jars": [
+        "factory_blocks-neoforge-1.4.0+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fancymenu",
+      "versions": [
+        "3.9.12"
+      ],
+      "jars": [
+        "fancymenu_neoforge_3.9.12_MC_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "farmersdelight",
+      "versions": [
+        "1.3.4"
+      ],
+      "jars": [
+        "FarmersDelight-1.21.1-1.3.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "farmingforblockheads",
+      "versions": [
+        "21.1.13"
+      ],
+      "jars": [
+        "farmingforblockheads-neoforge-1.21.1-21.1.13.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fastbench",
+      "versions": [
+        "9.1.3"
+      ],
+      "jars": [
+        "FastWorkbench-1.21.1-9.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fastfurnace",
+      "versions": [
+        "9.0.1"
+      ],
+      "jars": [
+        "FastFurnace-1.21.1-9.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fastsuite",
+      "versions": [
+        "6.0.7"
+      ],
+      "jars": [
+        "FastSuite-1.21.1-6.0.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ferritecore",
+      "versions": [
+        "7.0.3"
+      ],
+      "jars": [
+        "ferritecore-7.0.3-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fireproofboats",
+      "versions": [
+        "1.21.1-1.0.4"
+      ],
+      "jars": [
+        "fireproofboats-1.21.1-1.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "flickerfix",
+      "versions": [
+        "6.1.0"
+      ],
+      "jars": [
+        "flickerfix-1.21.1-6.1.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fluxnetworks",
+      "versions": [
+        "8.0.0"
+      ],
+      "jars": [
+        "FluxNetworks-1.21.1-8.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "forbidden_arcanus",
+      "versions": [
+        "2.6.1"
+      ],
+      "jars": [
+        "forbidden_arcanus-2.6.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "formations",
+      "versions": [
+        "1.0.4"
+      ],
+      "jars": [
+        "formations-1.0.4-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "formationsnether",
+      "versions": [
+        "1.0.5+b"
+      ],
+      "jars": [
+        "formationsnether-1.0.5b-mc1.21+.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "formationsoverworld",
+      "versions": [
+        "1.0.5+c"
+      ],
+      "jars": [
+        "formationsoverworld-1.0.5c-mc1.21+.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "framedblocks",
+      "versions": [
+        "10.6.2"
+      ],
+      "jars": [
+        "FramedBlocks-10.6.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "framework",
+      "versions": [
+        "0.13.11"
+      ],
+      "jars": [
+        "framework-neoforge-1.21.1-0.13.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbchunks",
+      "versions": [
+        "2101.1.22"
+      ],
+      "jars": [
+        "ftb-chunks-neoforge-2101.1.22.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbessentials",
+      "versions": [
+        "2101.1.10"
+      ],
+      "jars": [
+        "ftb-essentials-neoforge-2101.1.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbfiltersystem",
+      "versions": [
+        "21.1.4"
+      ],
+      "jars": [
+        "ftb-filter-system-neoforge-21.1.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbjeiextras",
+      "versions": [
+        "21.1.7"
+      ],
+      "jars": [
+        "ftb-jei-extras-21.1.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftblibrary",
+      "versions": [
+        "2101.1.36"
+      ],
+      "jars": [
+        "ftb-library-neoforge-2101.1.36.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbquests",
+      "versions": [
+        "2101.1.36"
+      ],
+      "jars": [
+        "ftb-quests-neoforge-2101.1.36.jar"
+      ],
+      "specializedReaders": [
+        "team_progress"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbquestslangsplitter",
+      "versions": [
+        "1.0.7"
+      ],
+      "jars": [
+        "ftbquestslangsplitter-1.0.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbranks",
+      "versions": [
+        "2101.1.5"
+      ],
+      "jars": [
+        "ftb-ranks-neoforge-2101.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbteams",
+      "versions": [
+        "2101.1.11"
+      ],
+      "jars": [
+        "ftb-teams-neoforge-2101.1.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbultimine",
+      "versions": [
+        "2101.1.15"
+      ],
+      "jars": [
+        "ftb-ultimine-neoforge-2101.1.15.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ftbxmodcompat",
+      "versions": [
+        "21.1.12"
+      ],
+      "jars": [
+        "ftb-xmod-compat-neoforge-21.1.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fuelgoeshere",
+      "versions": [
+        "1.21.1-1.2.0"
+      ],
+      "jars": [
+        "fuelgoeshere-1.21.1-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "functionalstorage",
+      "versions": [
+        "1.21.1-1.5.8"
+      ],
+      "jars": [
+        "functionalstorage-1.21.1-1.5.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fusion",
+      "versions": [
+        "1.3.15+b"
+      ],
+      "jars": [
+        "fusion-1.3.15b-neoforge-mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "fzzy_config",
+      "versions": [
+        "0.7.7+1.21+neoforge"
+      ],
+      "jars": [
+        "fzzy_config-0.7.7+1.21+neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "gateways",
+      "versions": [
+        "5.1.0"
+      ],
+      "jars": [
+        "GatewaysToEternity-1.21.1-5.1.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "geckolib",
+      "versions": [
+        "4.9.3"
+      ],
+      "jars": [
+        "geckolib-neoforge-1.21.1-4.9.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "generatorgalore",
+      "versions": [
+        "1.21.1-1.7.0"
+      ],
+      "jars": [
+        "generatorgalore-1.21.1-1.7.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "getittogetherdrops",
+      "versions": [
+        "1.4"
+      ],
+      "jars": [
+        "getittogetherdrops-neoforge-1.21.5-1.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "glassential",
+      "versions": [
+        "3.4.7"
+      ],
+      "jars": [
+        "Glassential-renewed-1.21.1-3.4.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "glodium",
+      "versions": [
+        "1.21-2.2-neoforge"
+      ],
+      "jars": [
+        "Glodium-1.21-2.2-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "gmut",
+      "versions": [
+        "6.4"
+      ],
+      "jars": [
+        "GravitationalModulatingAdditionalUnit-1.21.1-6.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "guideme",
+      "versions": [
+        "21.1.19"
+      ],
+      "jars": [
+        "guideme-21.1.19.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "handcrafted",
+      "versions": [
+        "4.0.3"
+      ],
+      "jars": [
+        "handcrafted-neoforge-1.21.1-4.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "hardenedarmadillos",
+      "versions": [
+        "1.21.1-0.2.0"
+      ],
+      "jars": [
+        "hardenedarmadillos-1.21.1-0.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "hellish_trials",
+      "versions": [
+        "1.0.5"
+      ],
+      "jars": [
+        "HellishTrials-neoforge-1.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "herbsandharvest",
+      "versions": [
+        "1.21.1-21"
+      ],
+      "jars": [
+        "herbsandharvest-1.21.1-21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "heyberryshutup",
+      "versions": [
+        "1.21.0-2.0.4"
+      ],
+      "jars": [
+        "heyberryshutup-1.21.0-2.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "hostilenetworks",
+      "versions": [
+        "6.5.1"
+      ],
+      "jars": [
+        "HostileNeuralNetworks-1.21.1-6.5.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "iceandfire",
+      "versions": [
+        "2.0-beta.17"
+      ],
+      "jars": [
+        "iceandfire-2.0-beta.17.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "iceberg",
+      "versions": [
+        "1.3.2"
+      ],
+      "jars": [
+        "Iceberg-1.21.1-neoforge-1.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "illagerwarship",
+      "versions": [
+        "1.0.1"
+      ],
+      "jars": [
+        "illagerwarship-1.0.1-neoforge-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "imfast",
+      "versions": [
+        "1.0.3"
+      ],
+      "jars": [
+        "imfast-NEOFORGE-1.21.1-1.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "immediatelyfast",
+      "versions": [
+        "1.6.14+1.21.1"
+      ],
+      "jars": [
+        "ImmediatelyFast-NeoForge-1.6.14+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "immeng",
+      "versions": [
+        "1.1.0-beta"
+      ],
+      "jars": [
+        "Immersive-Energistics-1.1.0-beta.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "immersiveengineering",
+      "versions": [
+        "12.4.2-194"
+      ],
+      "jars": [
+        "ImmersiveEngineering-1.21.1-12.4.2-194.jar"
+      ],
+      "specializedReaders": [
+        "master_saved_state"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "incontrol",
+      "versions": [
+        "1.21-10.3.0"
+      ],
+      "jars": [
+        "incontrol-1.21-10.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "industrialforegoing",
+      "versions": [
+        "1.21-3.6.39"
+      ],
+      "jars": [
+        "industrialforegoing-1.21-3.6.39.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "industrialforegoingsouls",
+      "versions": [
+        "1.10.7"
+      ],
+      "jars": [
+        "industrial-foregoing-souls-1.21.1-1.10.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "industrialization_overdrive",
+      "versions": [
+        "1.14.0+1.21.1"
+      ],
+      "jars": [
+        "industrialization_overdrive-1.14.0+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "integratedcrafting",
+      "versions": [
+        "1.7.2"
+      ],
+      "jars": [
+        "integratedcrafting-1.21.1-neoforge-1.7.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "integrateddynamics",
+      "versions": [
+        "1.37.1"
+      ],
+      "jars": [
+        "integrateddynamics-1.21.1-neoforge-1.37.1-2160.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "integratedscripting",
+      "versions": [
+        "1.0.27"
+      ],
+      "jars": [
+        "integratedscripting-1.21.1-neoforge-1.0.27.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "integratedterminals",
+      "versions": [
+        "1.10.0"
+      ],
+      "jars": [
+        "integratedterminals-1.21.1-neoforge-1.10.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "integratedtunnels",
+      "versions": [
+        "1.12.0"
+      ],
+      "jars": [
+        "integratedtunnels-1.21.1-neoforge-1.12.0-792.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "interdimensionalwirelesstransmitter",
+      "versions": [
+        "1.21.1-0.1.5"
+      ],
+      "jars": [
+        "interdimensionalwirelesstransmitter-neoforge-1.21.1-0.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "invasiveopts",
+      "versions": [
+        "1.0.24"
+      ],
+      "jars": [
+        "invasiveopts-1.0.24.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "invtweaks",
+      "versions": [
+        "1.21.1-1.3.2"
+      ],
+      "jars": [
+        "invtweaks-1.21.1-1.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "iris",
+      "versions": [
+        "1.8.14-beta.1+mc1.21.1"
+      ],
+      "jars": [
+        "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "iris_search",
+      "versions": [
+        "1.8.1-neoforge"
+      ],
+      "jars": [
+        "IrisSearch-1.8.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ironfurnaces",
+      "versions": [
+        "4.3.2"
+      ],
+      "jars": [
+        "ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ironjetpacks",
+      "versions": [
+        "8.0.11"
+      ],
+      "jars": [
+        "IronJetpacks-1.21.1-8.0.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "irons_jewelry",
+      "versions": [
+        "1.21.1-2.0.2"
+      ],
+      "jars": [
+        "irons_jewelry-1.21.1-2.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "irons_lib",
+      "versions": [
+        "1.21.1-2.1.1"
+      ],
+      "jars": [
+        "irons_lib-1.21.1-2.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "irons_spellbooks",
+      "versions": [
+        "1.21.1-3.16.3"
+      ],
+      "jars": [
+        "irons_spellbooks-1.21.1-3.16.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "itemcollectors",
+      "versions": [
+        "1.1.10"
+      ],
+      "jars": [
+        "itemcollectors-1.1.10-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jade",
+      "versions": [
+        "15.10.6+neoforge"
+      ],
+      "jars": [
+        "Jade-1.21.1-NeoForge-15.10.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jearchaeology",
+      "versions": [
+        "1.21.1-1.2.0"
+      ],
+      "jars": [
+        "jearchaeology-1.21.1-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jei",
+      "versions": [
+        "19.57.0.446"
+      ],
+      "jars": [
+        "jei-1.21.1-neoforge-19.57.0.446.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jei_mekanism_multiblocks",
+      "versions": [
+        "7.21"
+      ],
+      "jars": [
+        "JustEnoughMekanismMultiblocks-1.21.1-7.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jeistuff",
+      "versions": [
+        "1.21.1-1.2.1"
+      ],
+      "jars": [
+        "jeistuff-1.21.1-1.2.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "journeymap",
+      "versions": [
+        "1.21.1-6.0.9"
+      ],
+      "jars": [
+        "journeymap-neoforge-1.21.1-6.0.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jumpboat",
+      "versions": [
+        "1.21.0-1.0.5"
+      ],
+      "jars": [
+        "jumpboat-1.21.0-1.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "jupiter",
+      "versions": [
+        "2.3.7"
+      ],
+      "jars": [
+        "jupiter-2.3.7-1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "justdirethings",
+      "versions": [
+        "1.5.7"
+      ],
+      "jars": [
+        "justdirethings-1.5.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "justenoughbreeding",
+      "versions": [
+        "3.2.1"
+      ],
+      "jars": [
+        "justenoughbreeding-neoforge-1.21.1-3.2.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "justenoughprofessions",
+      "versions": [
+        "4.0.5"
+      ],
+      "jars": [
+        "JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "justzoom",
+      "versions": [
+        "2.1.0"
+      ],
+      "jars": [
+        "justzoom_neoforge_2.1.0_MC_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "keybindbundles",
+      "versions": [
+        "1.4.0"
+      ],
+      "jars": [
+        "keybindbundles-1.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "keybindspurger",
+      "versions": [
+        "1.4.0"
+      ],
+      "jars": [
+        "KeybindsPurger-1.4.0-neoforge-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "konkrete",
+      "versions": [
+        "1.9.9"
+      ],
+      "jars": [
+        "konkrete_neoforge_1.9.9_MC_1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "kubejs",
+      "versions": [
+        "2101.7.2-build.374"
+      ],
+      "jars": [
+        "kubejs-neoforge-2101.7.2-build.374.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "kubejstweaks",
+      "versions": [
+        "1.0.6"
+      ],
+      "jars": [
+        "kubejstweaks-1.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "laserbridges",
+      "versions": [
+        "6"
+      ],
+      "jars": [
+        "laserbridges-1.21.1-neoforge-6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "laserio",
+      "versions": [
+        "1.9.11"
+      ],
+      "jars": [
+        "laserio-1.9.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "lionfishapi",
+      "versions": [
+        "3.1"
+      ],
+      "jars": [
+        "lionfishapi-3.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "lithostitched",
+      "versions": [
+        "1.8.0"
+      ],
+      "jars": [
+        "lithostitched-1.8.0-neoforge-21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "little_big_redstone",
+      "versions": [
+        "1.9.11-1.21.1"
+      ],
+      "jars": [
+        "little-big-redstone-1.9.11-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "livingthings",
+      "versions": [
+        "1.21.1-2.3.2"
+      ],
+      "jars": [
+        "livingthings-neoforge-1.21.1-2.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "lmft",
+      "versions": [
+        "1.1.1+1.21.9"
+      ],
+      "jars": [
+        "lmft-1.1.1+1.21.9-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "logisticsnetworks",
+      "versions": [
+        "1.16.3"
+      ],
+      "jars": [
+        "logisticsnetworks-1.21.1-1.16.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "lootr",
+      "versions": [
+        "1.21.1-1.11.38.126"
+      ],
+      "jars": [
+        "lootr-neoforge-1.21.1-1.11.38.126.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "luminax",
+      "versions": [
+        "1.3.1"
+      ],
+      "jars": [
+        "luminax-1.3.1_neoforge_1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mahoutsukai",
+      "versions": [
+        "1.21.1-v1.36.28"
+      ],
+      "jars": [
+        "mahoutsukai-1.21.1-v1.36.28.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcjtylib",
+      "versions": [
+        "1.21-9.0.21"
+      ],
+      "jars": [
+        "mcjtylib-1.21-9.0.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwbridges",
+      "versions": [
+        "3.1.2"
+      ],
+      "jars": [
+        "mcw-bridges-3.1.2-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwdoors",
+      "versions": [
+        "1.1.5"
+      ],
+      "jars": [
+        "mcw-doors-1.1.5-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwfences",
+      "versions": [
+        "1.2.1"
+      ],
+      "jars": [
+        "mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwfurnitures",
+      "versions": [
+        "3.4.1"
+      ],
+      "jars": [
+        "mcw-furniture-3.4.1-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwholidays",
+      "versions": [
+        "1.1.2"
+      ],
+      "jars": [
+        "mcw-holidays-1.1.2-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwlights",
+      "versions": [
+        "1.1.5"
+      ],
+      "jars": [
+        "mcw-lights-1.1.5-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwpaths",
+      "versions": [
+        "1.1.1"
+      ],
+      "jars": [
+        "mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwroofs",
+      "versions": [
+        "2.3.2"
+      ],
+      "jars": [
+        "mcw-roofs-2.3.2-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwstairs",
+      "versions": [
+        "1.0.2"
+      ],
+      "jars": [
+        "mcw-mcwstairs-1.0.2-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwtrpdoors",
+      "versions": [
+        "1.1.5"
+      ],
+      "jars": [
+        "mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mcwwindows",
+      "versions": [
+        "2.4.2"
+      ],
+      "jars": [
+        "mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "measurements",
+      "versions": [
+        "3.0.3"
+      ],
+      "jars": [
+        "Measurements-neoforge-1.21.1-3.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "megacells",
+      "versions": [
+        "4.11.0"
+      ],
+      "jars": [
+        "megacells-4.11.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekanism",
+      "versions": [
+        "10.7.19"
+      ],
+      "jars": [
+        "Mekanism-1.21.1-10.7.19.85.jar"
+      ],
+      "specializedReaders": [
+        "formation",
+        "chemicals",
+        "strict_energy",
+        "heat"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekanismcovers",
+      "versions": [
+        "1.3-BETA+1.21"
+      ],
+      "jars": [
+        "mekanismcovers-1.3-BETA+1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekanismgenerators",
+      "versions": [
+        "10.7.19"
+      ],
+      "jars": [
+        "MekanismGenerators-1.21.1-10.7.19.85.jar"
+      ],
+      "specializedReaders": [
+        "formation",
+        "chemicals",
+        "strict_energy",
+        "heat"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekanismtools",
+      "versions": [
+        "10.7.19"
+      ],
+      "jars": [
+        "MekanismTools-1.21.1-10.7.19.85.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekanisticrouters",
+      "versions": [
+        "1.2.0"
+      ],
+      "jars": [
+        "mekanisticrouters-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mekmm",
+      "versions": [
+        "1.4.1"
+      ],
+      "jars": [
+        "mekmm-1.21.1-1.4.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "melody",
+      "versions": [
+        "1.0.10"
+      ],
+      "jars": [
+        "melody_neoforge_1.0.10_MC_1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "memorysettings",
+      "versions": [
+        "6.0"
+      ],
+      "jars": [
+        "memorysettings-1.21-6.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "merequester",
+      "versions": [
+        "1.21.1-1.5.0"
+      ],
+      "jars": [
+        "merequester-neoforge-1.21.1-1.5.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "merrymaking",
+      "versions": [
+        "1.21.1-16"
+      ],
+      "jars": [
+        "merrymaking-1.21.1-16.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mes",
+      "versions": [
+        "2.1.1"
+      ],
+      "jars": [
+        "MoogsEndStructures-universal-1.21-2.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mezz_config",
+      "versions": [
+        "0.6.3"
+      ],
+      "jars": [
+        "mezz_config-1.21.1-neoforge-0.6.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mffs",
+      "versions": [
+        "5.4.44"
+      ],
+      "jars": [
+        "mffs-5.4.44.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mifa",
+      "versions": [
+        "2.1.0"
+      ],
+      "jars": [
+        "mifa-neoforge-1.21.x-2.1.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "minecolonies",
+      "versions": [
+        "1.1.1396-1.21.1-snapshot"
+      ],
+      "jars": [
+        "minecolonies-1.1.1396-1.21.1-snapshot.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mininggadgets",
+      "versions": [
+        "1.18.8"
+      ],
+      "jars": [
+        "mininggadgets-1.18.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mns",
+      "versions": [
+        "3.1.1"
+      ],
+      "jars": [
+        "MoogsNetherStructures-universal-1.21-3.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mob_grinding_utils",
+      "versions": [
+        "1.1.10+mc1.21.1"
+      ],
+      "jars": [
+        "mob_grinding_utils-1.1.10+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modelfix",
+      "versions": [
+        "1.21-1.10"
+      ],
+      "jars": [
+        "modelfix-1.21-1.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modern_industrialization",
+      "versions": [
+        "2.5.8"
+      ],
+      "jars": [
+        "Modern-Industrialization-2.5.8.jar"
+      ],
+      "specializedReaders": [
+        "formation"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moderndynamics",
+      "versions": [
+        "0.9.6"
+      ],
+      "jars": [
+        "Modern-Dynamics-0.9.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modernfix",
+      "versions": [
+        "5.27.24+mc1.21.1"
+      ],
+      "jars": [
+        "modernfix-neoforge-5.27.24+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modonomicon",
+      "versions": [
+        "1.120.4"
+      ],
+      "jars": [
+        "modonomicon-1.21.1-neoforge-1.120.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modularbees",
+      "versions": [
+        "1.21.1-3.4-neoforge"
+      ],
+      "jars": [
+        "ModularBees-1.21.1-3.4-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "modularrouters",
+      "versions": [
+        "13.2.7"
+      ],
+      "jars": [
+        "modular-routers-13.2.7+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "monolib",
+      "versions": [
+        "4.1.0"
+      ],
+      "jars": [
+        "monolib-neoforge-1.21.1-4.1.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moogs_structures",
+      "versions": [
+        "3.3.1"
+      ],
+      "jars": [
+        "MoogsStructureLib-neoforge-1.21.1-3.3.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moonlight",
+      "versions": [
+        "1.21.1-3.6.8"
+      ],
+      "jars": [
+        "moonlight-1.21.1-3.6.8-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moredragoneggs",
+      "versions": [
+        "5.0"
+      ],
+      "jars": [
+        "moredragoneggs-5.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moreoverlays",
+      "versions": [
+        "1.24.2"
+      ],
+      "jars": [
+        "moreoverlays-1.24.2-mc1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "morered",
+      "versions": [
+        "6.0.0.3"
+      ],
+      "jars": [
+        "morered-1.21.1-6.0.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "moreredxcctcompat",
+      "versions": [
+        "1.21.1-1.3.0"
+      ],
+      "jars": [
+        "MoreRed-CCT-Compat-1.21.1-1.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mostructures",
+      "versions": [
+        "1.6.0+1.21.1"
+      ],
+      "jars": [
+        "mostructures-neoforge-1.6.0+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mousetweaks",
+      "versions": [
+        "2.26.1"
+      ],
+      "jars": [
+        "MouseTweaks-neoforge-mc1.21-2.26.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mss",
+      "versions": [
+        "2.2.0"
+      ],
+      "jars": [
+        "MoogsSoaringStructures-universal-1.21-2.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "multipiston",
+      "versions": [
+        "1.2.58-1.21.1"
+      ],
+      "jars": [
+        "multipiston-1.2.58-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mvs",
+      "versions": [
+        "5.1.2"
+      ],
+      "jars": [
+        "MoogsVoyagerStructures-universal-1.21-5.1.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mysticalagradditions",
+      "versions": [
+        "8.0.14"
+      ],
+      "jars": [
+        "MysticalAgradditions-1.21.1-8.0.14.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mysticalagriculture",
+      "versions": [
+        "8.0.28"
+      ],
+      "jars": [
+        "MysticalAgriculture-1.21.1-8.0.28.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "mysticalcustomization",
+      "versions": [
+        "6.0.2"
+      ],
+      "jars": [
+        "MysticalCustomization-1.21.1-6.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "naturesaura",
+      "versions": [
+        "41.10"
+      ],
+      "jars": [
+        "NaturesAura-41.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "naturescompass",
+      "versions": [
+        "1.21.1-3.4.0-neoforge"
+      ],
+      "jars": [
+        "NaturesCompass-1.21.1-3.4.0-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "neo_auth",
+      "versions": [
+        "1.0.1"
+      ],
+      "jars": [
+        "NeoAuth-1.21.1-1.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "neoforge",
+      "versions": [
+        "neoforge-21.1.251"
+      ],
+      "jars": [
+        "neoforge-21.1.251 (modloader)"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "neovitae",
+      "versions": [
+        "1.1.26"
+      ],
+      "jars": [
+        "neovitae-1.21.1-1.1.26.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "netherportalfix",
+      "versions": [
+        "21.1.1"
+      ],
+      "jars": [
+        "netherportalfix-neoforge-1.21.1-21.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "nochatreports",
+      "versions": [
+        "1.21.1-v2.9.1"
+      ],
+      "jars": [
+        "NoChatReports-NEOFORGE-1.21.1-v2.9.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "not_enough_glyphs",
+      "versions": [
+        "4.6.2"
+      ],
+      "jars": [
+        "not_enough_glyphs-1.21.1-4.6.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "notenoughanimations",
+      "versions": [
+        "1.12.6"
+      ],
+      "jars": [
+        "notenoughanimations-neoforge-1.12.6-mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "novillagerdm",
+      "versions": [
+        "6.0.0"
+      ],
+      "jars": [
+        "novillagerdm-1.21.1-6.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "nullscape",
+      "versions": [
+        "1.2.14"
+      ],
+      "jars": [
+        "Nullscape_1.21.x_v1.2.14.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "observable",
+      "versions": [
+        "5.4.4"
+      ],
+      "jars": [
+        "observable-5.4.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "occultism",
+      "versions": [
+        "1.224.4"
+      ],
+      "jars": [
+        "occultism-1.21.1-neoforge-1.224.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "occultism_kubejs",
+      "versions": [
+        "1.11.0"
+      ],
+      "jars": [
+        "occultism_kubejs-1.21.1-neoforge-1.11.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "octolib",
+      "versions": [
+        "0.6.2"
+      ],
+      "jars": [
+        "OctoLib-NEOFORGE-0.6.2+1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ohthetreesyoullgrow",
+      "versions": [
+        "5.3.2"
+      ],
+      "jars": [
+        "Oh-The-Trees-Youll-Grow-neoforge-1.21.1-5.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "omegaconfig",
+      "versions": [
+        "1.5.1"
+      ],
+      "jars": [
+        "omegaconfig-neoforge-1.5.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "openloader",
+      "versions": [
+        "21.1.5"
+      ],
+      "jars": [
+        "OpenLoader-neoforge-1.21.1-21.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "oracle_index",
+      "versions": [
+        "1.4.0"
+      ],
+      "jars": [
+        "oracle_index-neoforge-1.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "oritech",
+      "versions": [
+        "1.2.12"
+      ],
+      "jars": [
+        "oritech-neoforge-1.21.1-1.2.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "overlapless",
+      "versions": [
+        "1.21.1-1.2.0"
+      ],
+      "jars": [
+        "overlapless-1.21.1-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "overloadedarmorbar",
+      "versions": [
+        "2"
+      ],
+      "jars": [
+        "overloadedarmorbar-neoforge-1.21-2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "owo",
+      "versions": [
+        "0.12.15.5-beta.1+1.21"
+      ],
+      "jars": [
+        "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pamhc2crops",
+      "versions": [
+        "1.0.9"
+      ],
+      "jars": [
+        "pamhc2crops-NEOFORGE-1.21.1-1.0.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pamhc2foodcore",
+      "versions": [
+        "1.0.4"
+      ],
+      "jars": [
+        "pamhc2foodcore-NEOFORGE-1.21.1-1.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pamhc2foodextended",
+      "versions": [
+        "1.0.0"
+      ],
+      "jars": [
+        "pamhc2foodextended-NEOFORGE-1.21.1-1.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pamhc2trees",
+      "versions": [
+        "1.0.9"
+      ],
+      "jars": [
+        "pamhc2trees-NEOFORGE-1.21.1-1.0.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "patchouli",
+      "versions": [
+        "1.21.1-93-NEOFORGE"
+      ],
+      "jars": [
+        "Patchouli-1.21.1-93-NEOFORGE.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pipez",
+      "versions": [
+        "1.21.1-1.2.31"
+      ],
+      "jars": [
+        "pipez-neoforge-1.21.1-1.2.31.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "placebo",
+      "versions": [
+        "9.9.2"
+      ],
+      "jars": [
+        "Placebo-1.21.1-9.9.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "playeranimator",
+      "versions": [
+        "2.0.4+1.21.1"
+      ],
+      "jars": [
+        "player-animation-lib-forge-2.0.4+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pneumaticcraft",
+      "versions": [
+        "8.2.23"
+      ],
+      "jars": [
+        "pneumaticcraft-repressurized-8.2.23+mc1.21.1.jar"
+      ],
+      "specializedReaders": [
+        "air"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pocketstorage",
+      "versions": [
+        "1.2.5"
+      ],
+      "jars": [
+        "pocketstorage-1.2.5+1.21.1-b3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "polyeng",
+      "versions": [
+        "0.4.1"
+      ],
+      "jars": [
+        "polyeng-0.4.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "polylib",
+      "versions": [
+        "2100.1.0-build.183"
+      ],
+      "jars": [
+        "polylib-2100.1.0-build.183-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "polymorph",
+      "versions": [
+        "1.2.0+1.21.1"
+      ],
+      "jars": [
+        "polymorph-neoforge-1.2.0+1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "ponderjs",
+      "versions": [
+        "1.21.1-2.4.0"
+      ],
+      "jars": [
+        "ponderjs-neoforge-1.21.1-2.4.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "potionsmaster",
+      "versions": [
+        "1.0.1"
+      ],
+      "jars": [
+        "potionsmaster-21.1.113-1.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "powah",
+      "versions": [
+        "6.2.10"
+      ],
+      "jars": [
+        "Powah-6.2.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "prickle",
+      "versions": [
+        "21.1.11"
+      ],
+      "jars": [
+        "prickle-neoforge-1.21.1-21.1.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "prism",
+      "versions": [
+        "1.0.11"
+      ],
+      "jars": [
+        "Prism-1.21.1-neoforge-1.0.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "productivebees",
+      "versions": [
+        "1.21.1-13.13.5"
+      ],
+      "jars": [
+        "productivebees-1.21.1-13.13.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "productivemetalworks",
+      "versions": [
+        "1.21.1-1.15.1"
+      ],
+      "jars": [
+        "productivemetalworks-1.21.1-1.15.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "productivetrees",
+      "versions": [
+        "1.21.1-1.1.1"
+      ],
+      "jars": [
+        "productivetrees-1.21.1-1.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "pylons",
+      "versions": [
+        "5.4.2"
+      ],
+      "jars": [
+        "pylons-1.21.1-5.4.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "quarryplus",
+      "versions": [
+        "21.1.164"
+      ],
+      "jars": [
+        "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.164.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "railcraft",
+      "versions": [
+        "1.2.10"
+      ],
+      "jars": [
+        "railcraft-reborn-1.21.1-1.2.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rainbows",
+      "versions": [
+        "1.5"
+      ],
+      "jars": [
+        "Rainbows-1.21-1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rangedpumps",
+      "versions": [
+        "1.3.0"
+      ],
+      "jars": [
+        "rangedpumps-1.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rebind_narrator",
+      "versions": [
+        "2026.08.31"
+      ],
+      "jars": [
+        "rebind_narrator-1.21.1-neoforge-2026.08.31.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rechiseled",
+      "versions": [
+        "1.2.6"
+      ],
+      "jars": [
+        "rechiseled-1.2.6-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rechiseled_chipped",
+      "versions": [
+        "1.3"
+      ],
+      "jars": [
+        "rechiseled_chipped-2.0-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rechiseledcreate",
+      "versions": [
+        "1.1.1"
+      ],
+      "jars": [
+        "rechiseledcreate-1.1.1-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "redstonepen",
+      "versions": [
+        "1.11.42"
+      ],
+      "jars": [
+        "redstonepen-1.21-neoforge-1.11.42.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedstorage",
+      "versions": [
+        "2.0.9"
+      ],
+      "jars": [
+        "refinedstorage-neoforge-2.0.9.jar"
+      ],
+      "specializedReaders": [
+        "network_contents"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedstorage_curios_integration",
+      "versions": [
+        "1.0.0"
+      ],
+      "jars": [
+        "refinedstorage-curios-integration-1.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedstorage_jei_integration",
+      "versions": [
+        "1.0.0"
+      ],
+      "jars": [
+        "refinedstorage-jei-integration-neoforge-1.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedstorage_mekanism_integration",
+      "versions": [
+        "1.1.1"
+      ],
+      "jars": [
+        "refinedstorage-mekanism-integration-1.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedstorage_quartz_arsenal",
+      "versions": [
+        "1.0.8"
+      ],
+      "jars": [
+        "refinedstorage-quartz-arsenal-neoforge-1.0.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refinedtypes",
+      "versions": [
+        "1.21.1-0.3.2"
+      ],
+      "jars": [
+        "refined-types-1.21.1-0.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "refurbished_furniture",
+      "versions": [
+        "1.0.22"
+      ],
+      "jars": [
+        "refurbished_furniture-neoforge-1.21.1-1.0.22.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "regions_unexplored",
+      "versions": [
+        "0.5.9"
+      ],
+      "jars": [
+        "regions_unexplored-neoforge-1.21.1-0.5.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "relics",
+      "versions": [
+        "0.12.8"
+      ],
+      "jars": [
+        "relics-1.21.1-0.12.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "reliquary",
+      "versions": [
+        "2.0.80"
+      ],
+      "jars": [
+        "reliquary-1.21.1-2.0.80.1570.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "reliquified_artifacts",
+      "versions": [
+        "1.0.8"
+      ],
+      "jars": [
+        "reliquified_artifacts-1.21.1-1.0.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "repeatable_trial_vaults",
+      "versions": [
+        "1.0.3"
+      ],
+      "jars": [
+        "repeatable_trial_vaults-neoforge-1.21-1.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "repurposed_structures",
+      "versions": [
+        "7.5.22+1.21.1-neoforge"
+      ],
+      "jars": [
+        "repurposed_structures-7.5.22+1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "resourcefulconfig",
+      "versions": [
+        "3.0.11"
+      ],
+      "jars": [
+        "resourcefulconfig-neoforge-1.21-3.0.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "resourcefullib",
+      "versions": [
+        "3.0.12"
+      ],
+      "jars": [
+        "resourcefullib-neoforge-1.21-3.0.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "restrictions",
+      "versions": [
+        "1.21-7.0.3"
+      ],
+      "jars": [
+        "restrictions-1.21-7.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rftoolsbase",
+      "versions": [
+        "1.21-6.0.11"
+      ],
+      "jars": [
+        "rftoolsbase-1.21-6.0.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rftoolsbuilder",
+      "versions": [
+        "1.21-7.0.6"
+      ],
+      "jars": [
+        "rftoolsbuilder-1.21-7.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rftoolspower",
+      "versions": [
+        "1.21-7.0.6"
+      ],
+      "jars": [
+        "rftoolspower-1.21-7.0.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rftoolsstorage",
+      "versions": [
+        "1.21-6.0.5"
+      ],
+      "jars": [
+        "rftoolsstorage-1.21-6.0.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rftoolsutility",
+      "versions": [
+        "1.21-7.0.12"
+      ],
+      "jars": [
+        "rftoolsutility-1.21-7.0.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rhino",
+      "versions": [
+        "2101.2.8-build.91"
+      ],
+      "jars": [
+        "rhino-2101.2.8-build.91.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "rootsclassic",
+      "versions": [
+        "1.21.1-1.5.10"
+      ],
+      "jars": [
+        "RootsClassic-1.21.1-1.5.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sawmill",
+      "versions": [
+        "1.21-1.8.1"
+      ],
+      "jars": [
+        "sawmill-1.21-1.8.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "searchables",
+      "versions": [
+        "1.0.2"
+      ],
+      "jars": [
+        "Searchables-neoforge-1.21.1-1.0.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "securitycraft",
+      "versions": [
+        "1.10.2.1"
+      ],
+      "jars": [
+        "[1.21.1] SecurityCraft v1.10.2.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sfm",
+      "versions": [
+        "4.34.0"
+      ],
+      "jars": [
+        "Super Factory Manager (SFM)-MC1.21.1-4.34.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sgearmetalworks",
+      "versions": [
+        "1.21.1-1.5.0"
+      ],
+      "jars": [
+        "sgearmetalworks-1.21.1-1.5.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "shiny",
+      "versions": [
+        "1.21.1-1.3.0"
+      ],
+      "jars": [
+        "shiny-1.21.1-1.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "shrink",
+      "versions": [
+        "2.0.1.47"
+      ],
+      "jars": [
+        "shrink-2.0.1.47-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "silentgear",
+      "versions": [
+        "4.2.1.1"
+      ],
+      "jars": [
+        "silent-gear-1.21.1-neoforge-4.2.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "silentgems",
+      "versions": [
+        "5.1.3"
+      ],
+      "jars": [
+        "silentgems-1.21.1-neoforge-5.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "silentlib",
+      "versions": [
+        "10.6.0"
+      ],
+      "jars": [
+        "silent-lib-1.21.1-neoforge-10.6.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "simple_weather",
+      "versions": [
+        "1.0.13-hotfix"
+      ],
+      "jars": [
+        "simple_weather-1.0.13-hotfix.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "simplebackups",
+      "versions": [
+        "1.21-4.0.30"
+      ],
+      "jars": [
+        "SimpleBackups-1.21-4.0.30.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "simplemagnets",
+      "versions": [
+        "1.1.12+c"
+      ],
+      "jars": [
+        "simplemagnets-1.1.12c-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "simplylight",
+      "versions": [
+        "1.5.3"
+      ],
+      "jars": [
+        "simplylight-1.5.3+1.21.1-b4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "smartbrainlib",
+      "versions": [
+        "1.16.11"
+      ],
+      "jars": [
+        "SmartBrainLib-neoforge-1.21.1-1.16.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "smithingtemplateviewer",
+      "versions": [
+        "1.0.4"
+      ],
+      "jars": [
+        "smithingtemplateviewer-1.0.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sodium",
+      "versions": [
+        "0.8.13+mc1.21.1"
+      ],
+      "jars": [
+        "sodium-neoforge-0.8.13+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sodium_extra",
+      "versions": [
+        "0.9.4+mc1.21.1"
+      ],
+      "jars": [
+        "sodium-extra-neoforge-0.9.4+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "solcarrot",
+      "versions": [
+        "1.16.6"
+      ],
+      "jars": [
+        "solcarrot-1.21.1-1.16.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedbackpacks",
+      "versions": [
+        "3.26.3"
+      ],
+      "jars": [
+        "sophisticatedbackpacks-1.21.1-3.26.3.2158.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedbackpackscreateintegration",
+      "versions": [
+        "0.2.0"
+      ],
+      "jars": [
+        "sophisticatedbackpackscreateintegration-1.21.1-0.2.0.168.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedcore",
+      "versions": [
+        "1.5.1"
+      ],
+      "jars": [
+        "sophisticatedcore-1.21.1-1.5.1.2341.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedstorage",
+      "versions": [
+        "1.5.91"
+      ],
+      "jars": [
+        "sophisticatedstorage-1.21.1-1.5.91.2127.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedstoragecreateintegration",
+      "versions": [
+        "0.1.21"
+      ],
+      "jars": [
+        "sophisticatedstoragecreateintegration-1.21.1-0.1.21.209.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sophisticatedstorageinmotion",
+      "versions": [
+        "0.10.34"
+      ],
+      "jars": [
+        "sophisticatedstorageinmotion-1.21.1-0.10.34.358.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "soulplied_energistics",
+      "versions": [
+        "1.0.3"
+      ],
+      "jars": [
+        "soulplied_energistics-1.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "spark",
+      "versions": [
+        "1.10.124"
+      ],
+      "jars": [
+        "spark-1.10.124-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "starbunclemania",
+      "versions": [
+        "1.5.8"
+      ],
+      "jars": [
+        "starbunclemania-1.21.1-1.5.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "stepcrafter",
+      "versions": [
+        "1.21.1-0.1.9"
+      ],
+      "jars": [
+        "stepcrafter-neoforge-1.21.1-0.1.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "stevescarts",
+      "versions": [
+        "1.2.18"
+      ],
+      "jars": [
+        "stevescarts-1.21-1.2.18-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "storagedelight",
+      "versions": [
+        "26.09.17-1.21-neoforge"
+      ],
+      "jars": [
+        "storagedelight-26.09.17-1.21-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "structory",
+      "versions": [
+        "1.3.17"
+      ],
+      "jars": [
+        "Structory_26.2_v1.3.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "structory_towers",
+      "versions": [
+        "1.0.16"
+      ],
+      "jars": [
+        "Structory_Towers_26.1_v1.0.16.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "structurize",
+      "versions": [
+        "1.0.833-1.21.1-snapshot"
+      ],
+      "jars": [
+        "structurize-1.0.833-1.21.1-snapshot.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "stylecolonies",
+      "versions": [
+        "1.15.59-1.21.1"
+      ],
+      "jars": [
+        "stylecolonies-1.15.59-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "supermartijn642configlib",
+      "versions": [
+        "1.1.8"
+      ],
+      "jars": [
+        "supermartijn642configlib-1.1.8-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "supermartijn642corelib",
+      "versions": [
+        "1.1.24+a"
+      ],
+      "jars": [
+        "supermartijn642corelib-1.1.24a-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "supplementaries",
+      "versions": [
+        "1.21.1-3.9.9"
+      ],
+      "jars": [
+        "supplementaries-1.21.1-3.9.9-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sushigocrafting",
+      "versions": [
+        "0.6.6"
+      ],
+      "jars": [
+        "sushigocrafting-1.21-0.6.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "sussysniffers",
+      "versions": [
+        "1.21.1-0.1.3"
+      ],
+      "jars": [
+        "sussysniffers-1.21.1-0.1.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "t_and_t",
+      "versions": [
+        "1.13.11"
+      ],
+      "jars": [
+        "t_and_t-fabric-neoforge-1.13.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "tempad",
+      "versions": [
+        "3.0.4"
+      ],
+      "jars": [
+        "tempad-1.21.1-3.0.4-all.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "terrablender",
+      "versions": [
+        "4.1.0.8"
+      ],
+      "jars": [
+        "TerraBlender-neoforge-1.21.1-4.1.0.8.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "tesseract_api",
+      "versions": [
+        "1.12.16-1.21.1"
+      ],
+      "jars": [
+        "tesseract-api-neoforge-1.12.16-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "the_bumblezone",
+      "versions": [
+        "7.16.1+1.21.1-neoforge"
+      ],
+      "jars": [
+        "the_bumblezone-7.16.1+1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "theurgy",
+      "versions": [
+        "1.76.1"
+      ],
+      "jars": [
+        "theurgy-1.21.1-neoforge-1.76.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "theurgy_kubejs",
+      "versions": [
+        "1.6.0"
+      ],
+      "jars": [
+        "theurgy_kubejs-1.21.1-neoforge-1.6.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "tiab",
+      "versions": [
+        "6.5.4"
+      ],
+      "jars": [
+        "tiab-neoforge-6.5.4.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "titanium",
+      "versions": [
+        "4.0.50"
+      ],
+      "jars": [
+        "titanium-1.21-4.0.50.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "toastcontrol",
+      "versions": [
+        "9.0.1"
+      ],
+      "jars": [
+        "ToastControl-1.21.1-9.0.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "tombstone",
+      "versions": [
+        "9.5.6"
+      ],
+      "jars": [
+        "tombstone-neoforge-1.21.1-9.5.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "toolbelt",
+      "versions": [
+        "2.2.10"
+      ],
+      "jars": [
+        "ToolBelt-1.21.1-2.2.10.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "torchmaster",
+      "versions": [
+        "21.1.12"
+      ],
+      "jars": [
+        "torchmaster-neoforge-1.21.1-21.1.12.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "towntalk",
+      "versions": [
+        "1.2.0"
+      ],
+      "jars": [
+        "towntalk-1.2.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "transfer_labels",
+      "versions": [
+        "0.1.9"
+      ],
+      "jars": [
+        "transfer_labels-0.1.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "trashcans",
+      "versions": [
+        "1.1.0"
+      ],
+      "jars": [
+        "trashcans-1.1.0-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "trashslot",
+      "versions": [
+        "21.1.11"
+      ],
+      "jars": [
+        "trashslot-neoforge-1.21.1-21.1.11.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "treetap",
+      "versions": [
+        "1.21.1-0.4.6"
+      ],
+      "jars": [
+        "treetap-1.21.1-0.4.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "trophymanager",
+      "versions": [
+        "1.21.1-3.0.0"
+      ],
+      "jars": [
+        "trophymanager-1.21.1-3.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "twilightforest",
+      "versions": [
+        "4.8.3345"
+      ],
+      "jars": [
+        "twilightforest-1.21.1-4.8.3345-universal.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "undergarden",
+      "versions": [
+        "0.9.6"
+      ],
+      "jars": [
+        "The_Undergarden-1.21.1-0.9.6.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "underground_villages",
+      "versions": [
+        "4.0.3"
+      ],
+      "jars": [
+        "UndergroundVillages-neoforge-1.21.1-4.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "universalgrid",
+      "versions": [
+        "1.21.1-0.3.2"
+      ],
+      "jars": [
+        "universalgrid-neoforge-1.21.1-0.3.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "uranus",
+      "versions": [
+        "2.4.1-bugfix"
+      ],
+      "jars": [
+        "uranus-2.4.1-bugfix-1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "utilitarian",
+      "versions": [
+        "1.21.1-0.19.2"
+      ],
+      "jars": [
+        "utilitarian-1.21.1-0.19.2.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "utilityvest",
+      "versions": [
+        "1.3.0"
+      ],
+      "jars": [
+        "utilityvest-1.3.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "valhelsia_core",
+      "versions": [
+        "1.1.5"
+      ],
+      "jars": [
+        "valhelsia_core-neoforge-1.21.1-1.1.5.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "variantsandventures",
+      "versions": [
+        "1.0.26"
+      ],
+      "jars": [
+        "variantsandventures-neoforge-1.0.26+mc1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "villagesandpillages",
+      "versions": [
+        "1.0.3"
+      ],
+      "jars": [
+        "villagesandpillages-neoforge-mc1.21.1-1.0.3.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "waystones",
+      "versions": [
+        "21.1.45"
+      ],
+      "jars": [
+        "waystones-neoforge-1.21.1-21.1.45.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "wirelesschargers",
+      "versions": [
+        "1.0.9+a"
+      ],
+      "jars": [
+        "wirelesschargers-1.0.9a-neoforge-mc1.21.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "wits",
+      "versions": [
+        "1.3.1"
+      ],
+      "jars": [
+        "wits-neoforge-1.3.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "wstweaks",
+      "versions": [
+        "10.1.1"
+      ],
+      "jars": [
+        "WitherSkeletonTweaks-1.21.1-10.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xnet",
+      "versions": [
+        "1.21-7.0.7"
+      ],
+      "jars": [
+        "xnet-1.21-7.0.7.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xtonesreworked",
+      "versions": [
+        "1.1.1-1.21.1"
+      ],
+      "jars": [
+        "xtonesreworked-1.1.1-1.21.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xycraft_core",
+      "versions": [
+        "0.7.53"
+      ],
+      "jars": [
+        "xycraft_core-0.7.53-all.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xycraft_machines",
+      "versions": [
+        "0.7.53"
+      ],
+      "jars": [
+        "xycraft_machines-0.7.53.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xycraft_override",
+      "versions": [
+        "0.7.53"
+      ],
+      "jars": [
+        "xycraft_override-0.7.53.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "xycraft_world",
+      "versions": [
+        "0.7.53"
+      ],
+      "jars": [
+        "xycraft_world-0.7.53.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "yeetusexperimentus",
+      "versions": [
+        "87.0.0"
+      ],
+      "jars": [
+        "yeetusexperimentus-neoforge-87.0.0.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "yet_another_config_lib_v3",
+      "versions": [
+        "3.8.2+1.21.1-neoforge"
+      ],
+      "jars": [
+        "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "yungsapi",
+      "versions": [
+        "1.21.1-NeoForge-5.1.9"
+      ],
+      "jars": [
+        "YungsApi-1.21.1-NeoForge-5.1.9.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "yungsextras",
+      "versions": [
+        "1.21.1-NeoForge-5.1.1"
+      ],
+      "jars": [
+        "YungsExtras-1.21.1-NeoForge-5.1.1.jar"
+      ],
+      "specializedReaders": [],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    },
+    {
+      "id": "zerocore",
+      "versions": [
+        "1.21.1-2.4.21"
+      ],
+      "jars": [
+        "ZeroCore2-1.21.1-2.4.21.jar"
+      ],
+      "specializedReaders": [
+        "formation"
+      ],
+      "verification": "not_live_tested",
+      "coverage": "generic_discovery_plus_listed_readers; other_mechanics_unverified"
+    }
+  ]
+}

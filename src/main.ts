@@ -22,6 +22,7 @@ import { BridgeClient } from './inspection/bridge-client.js';
 import { PackIndex } from './inspection/pack-index.js';
 import { registerInspectionTools } from './tools/inspection-tools.js';
 import { registerCreateTools } from './tools/create-tools.js';
+import { registerPackTools } from './tools/pack-tools.js';
 
 setupStdioFiltering();
 
@@ -69,6 +70,7 @@ async function main() {
   registerInspectionTools(factory, connection, bridge,
     config.packRoot ? new PackIndex(config.packRoot) : undefined);
   registerCreateTools(factory, bridge);
+  registerPackTools(factory, bridge);
 
   process.stdin.on('end', () => {
     connection.cleanup();
