@@ -4,6 +4,14 @@ The companion can discover data from every loaded namespace without adding one h
 
 ## Install
 
+On Windows, extract the complete repository ZIP and double-click **`Run-ATM10-Audit.bat`** in the extracted folder. Install [Node.js](https://nodejs.org/) 22.14 or newer with npm first. The launcher asks for your ATM10 instance/server folder, offers to install the three read-only companion scripts with backups, installs dependencies, builds the MCP server, and guides you through starting/restarting the world. It saves a timestamped JSON report in the repository's `audits` folder and keeps the window open on success or failure. Initial dependency installation needs internet access; later runs reuse it unless the lockfile or Node version changes. No administrator rights are needed for a writable installation folder.
+
+Backups are stored under `kubejs/mcp-backups`, outside the executable script directory. The launcher preserves other scripts, including any existing Create adapter. For a remote server, select its actual shared server folder; selecting an unrelated client instance will not connect to it. Stop other MCP clients using the bridge while exporting. The audit and backup contain local installation details, so share the JSON intentionally.
+
+You can also run `Run-ATM10-Audit.bat --pack-root "C:\Games\ATM10"` from a terminal. `--help` prints usage; `ATM10_AUDIT_NO_PAUSE=1` disables the batch file's final pause for automation. The setup itself is interactive.
+
+For manual installation:
+
 Copy these files together into the server's `kubejs/server_scripts/`, then restart the server:
 
 - `companion/atm10-inspector.js`: request bridge and standard vanilla/NeoForge reads.
