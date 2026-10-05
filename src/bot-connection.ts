@@ -1,3 +1,4 @@
+import { AdvancementStore } from './inspection/advancement-store.js';
 import mineflayer from 'mineflayer';
 import pathfinderPkg from 'mineflayer-pathfinder';
 const { pathfinder, Movements } = pathfinderPkg;
@@ -11,6 +12,7 @@ interface BotConfig {
   host: string;
   port: number;
   username: string;
+  noBot?: boolean;
 }
 
 interface ConnectionCallbacks {
@@ -19,6 +21,7 @@ interface ConnectionCallbacks {
 }
 
 export class BotConnection {
+  readonly advancements = new AdvancementStore();
   private bot: mineflayer.Bot | null = null;
   private state: ConnectionState = 'disconnected';
   private config: BotConfig;
@@ -50,6 +53,8 @@ export class BotConnection {
   }
 
   connect(): void {
+    if (this.config.noBot) return;
+    this.advancements.reset();
     const botOptions = {
       host: this.config.host,
       port: this.config.port,
@@ -61,6 +66,7 @@ export class BotConnection {
     this.state = 'connecting';
     this.isReconnecting = false;
 
+    this.bot._client.on('advancements', packet => this.advancements.ingest(packet));
     this.registerEventHandlers(this.bot);
   }
 
@@ -106,11 +112,9 @@ export class BotConnection {
     bot.on('end', (reason) => {
       this.callbacks.onLog('info', `Bot disconnected: ${this.formatError(reason)}`);
 
-      if (this.state === 'connected') {
-        this.state = 'disconnected';
-      }
-
       if (this.bot === bot) {
+        this.state = 'disconnected';
+        this.advancements.reset();
         try {
           bot.removeAllListeners();
           this.bot = null;
@@ -152,6 +156,7 @@ export class BotConnection {
   }
 
   async checkConnectionAndReconnect(): Promise<{ connected: boolean; message?: string }> {
+    if (this.config.noBot) return { connected: false, message: 'Mineflayer is disabled by --no-bot. Use the companion inspection tools.' };
     const currentState = this.state;
 
     if (currentState === 'disconnected') {

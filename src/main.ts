@@ -18,6 +18,10 @@ import { registerGameStateTools } from './tools/gamestate-tools.js';
 import { registerCraftingTools } from './tools/crafting-tools.js';
 import { registerFurnaceTools } from './tools/furnace-tools.js';
 
+import { BridgeClient } from './inspection/bridge-client.js';
+import { PackIndex } from './inspection/pack-index.js';
+import { registerInspectionTools } from './tools/inspection-tools.js';
+
 setupStdioFiltering();
 
 process.on('unhandledRejection', (reason) => {
@@ -57,8 +61,12 @@ async function main() {
   registerChatTools(factory, getBot, messageStore);
   registerFlightTools(factory, getBot);
   registerGameStateTools(factory, getBot);
-  registerCraftingTools(factory, getBot);
+  // Vanilla static recipes must not be presented as the modded server's active recipes.
+  if (!config.bridgeDir) registerCraftingTools(factory, getBot);
   registerFurnaceTools(factory, getBot);
+  registerInspectionTools(factory, connection,
+    config.bridgeDir ? new BridgeClient(config.bridgeDir) : undefined,
+    config.packRoot ? new PackIndex(config.packRoot) : undefined);
 
   process.stdin.on('end', () => {
     connection.cleanup();

@@ -1,4 +1,9 @@
-# Minecraft MCP Server
+# Minecraft ATM10 MCP Server
+
+
+Fork of [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-software/minecraft-mcp-server), extended with pack-file search and live inspection for recipes, registries, tags, storage, inventories, multiblocks, advancements and world state.
+
+**[Read the ATM10 / vanilla setup and supported features](docs/inspection.md).** ATM10 information tools can run without a Mineflayer bot using `--no-bot --bridge-dir <server>/kubejs/export/mcp --pack-root <pack>`. Install the included companion on the server first.
 
 <a href="https://github.com/yuniko-software/minecraft-mcp-server/actions">
   <img alt="CI" src="https://github.com/yuniko-software/minecraft-mcp-server/actions/workflows/build.yml/badge.svg">
@@ -15,7 +20,7 @@
 ___
 
 > [!IMPORTANT]
-> Currently supports Minecraft version 1.21.11. Newer versions may not work with this MCP server, but we will add support as soon as possible.
+> The Mineflayer bot supports vanilla protocol versions up to 1.21.11. ATM10 uses Minecraft 1.21.1 with NeoForge; use the included KubeJS companion for modded information rather than assuming a vanilla bot can join. See [ATM10 and vanilla inspection setup](docs/inspection.md).
 
 https://github.com/user-attachments/assets/6f17f329-3991-4bc7-badd-7cde9aacb92f
 
@@ -28,7 +33,7 @@ A Minecraft bot powered by large language models and [Mineflayer API](https://gi
 ## Prerequisites
 
 - Git
-- Node.js (>= 20.10.0)
+- Node.js (>= 22.14.0)
 - A running Minecraft game (the setup below was tested with Minecraft 1.21.8 Java Edition included in Microsoft Game Pass)
 - An MCP-compatible client. Claude Desktop will be used as an example, but other MCP clients are also supported
 
@@ -51,7 +56,7 @@ Make sure that [Claude Desktop](https://claude.ai/download) is installed. Open `
       "command": "npx",
       "args": [
         "-y",
-        "github:yuniko-software/minecraft-mcp-server",
+        "github:infopcgood/minecraft-atm10-mcp-server",
         "--host",
         "localhost",
         "--port",

@@ -1,0 +1,33 @@
+import test from 'ava';
+import sinon from 'sinon';
+import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { BotConnection } from '../src/bot-connection.js';
+import { ToolFactory } from '../src/tool-factory.js';
+import { BridgeClient } from '../src/inspection/bridge-client.js';
+import { registerInspectionTools } from '../src/tools/inspection-tools.js';
+
+test('inspection tools work with no bot and enforce query bounds before bridge calls', async t => {
+  const server = { tool: sinon.stub() } as unknown as McpServer;
+  const connection = new BotConnection({ host: 'localhost', port: 25565, username: 'Player', noBot: true }, { onLog: () => {}, onChatMessage: () => {} });
+  const factory = new ToolFactory(server, connection);
+  const bridge = new BridgeClient('/unused');
+  const request = sinon.stub(bridge, 'request').resolves({ source: 'server-bridge', data: { results: [] } });
+  registerInspectionTools(factory, connection, bridge);
+  const calls = (server.tool as sinon.SinonStub).getCalls();
+  t.is(calls.length, 11);
+  const invoke = (name: string, args: unknown) => calls.find(call => call.args[0] === name)!.args[3](args);
+  const result = await invoke('query-recipes', { query: 'runic' });
+  t.false(!!result.isError);
+  t.true(request.calledWith('recipes', sinon.match({ query: 'runic', offset: 0, limit: 20 })));
+  request.resetHistory();
+  const invalid = await invoke('query-recipes', { limit: 500 });
+  t.true(invalid.isError);
+  t.false(request.called);
+  const inventory = await invoke('get-inventory-state', {});
+  t.false(!!inventory.isError);
+  t.true(request.calledWith('inventory', sinon.match({ player: 'Player' })));
+  request.rejects(new Error('server offline'));
+  const error = await invoke('query-recipes', {});
+  t.true(error.isError);
+  t.true(error.content[0].text.includes('server offline'));
+});
