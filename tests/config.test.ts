@@ -1,6 +1,17 @@
 import test from 'ava';
 import { parseConfig } from '../src/config.js';
 
+test('parses information-only pack and companion options', (t) => {
+  const original = process.argv;
+  try {
+    process.argv = ['node', 'script.js', '--no-bot', '--pack-root', '/packs/atm10', '--bridge-dir', '/server/kubejs/export/mcp'];
+    const config = parseConfig();
+    t.true(config.noBot);
+    t.is(config.packRoot, '/packs/atm10');
+    t.is(config.bridgeDir, '/server/kubejs/export/mcp');
+  } finally { process.argv = original; }
+});
+
 test('parseConfig returns default values', (t) => {
   const originalArgv = process.argv;
   process.argv = ['node', 'script.js'];

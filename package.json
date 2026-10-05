@@ -20,6 +20,8 @@
     "prepare": "npm run build",
     "start": "node dist/main.js",
     "test": "ava",
+    "test:inspection": "node --test checks/*.test.mjs",
+    "audit:runtime": "node scripts/export-runtime-audit.mjs",
     "lint": "eslint \"{src,tests}/**/*.ts\"",
     "lint:fix": "eslint \"{src,tests}/**/*.ts\" --fix"
   },
@@ -50,6 +52,6 @@
     "typescript": "^5.9.3"
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=22.14.0"
   }
 }

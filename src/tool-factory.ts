@@ -9,6 +9,7 @@ type McpResponse = {
 };
 
 export class ToolFactory {
+  private botQueue: Promise<unknown> = Promise.resolve();
   constructor(
     private server: McpServer,
     private connection: BotConnection
@@ -19,26 +20,28 @@ export class ToolFactory {
     description: string,
     schema: Record<string, unknown>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    executor: (args: any) => Promise<McpResponse>
+    executor: (args: any) => Promise<McpResponse>,
+    options: { requiresBot?: boolean; serializeBot?: boolean } = {}
   ): void {
-    this.server.tool(name, description, schema, async (args: unknown): Promise<McpResponse> => {
-      const connectionCheck = await this.connection.checkConnectionAndReconnect();
-
-      if (!connectionCheck.connected) {
-        return {
-          content: [{ type: "text", text: connectionCheck.message! }],
-          isError: true
-        };
-      }
-
+    const execute = async (args: unknown): Promise<McpResponse> => {
       try {
         const parsedArgs = this.shouldValidateSchema(schema)
           ? this.parseArgs(schema as ZodRawShape, args)
           : args;
+        if (options.requiresBot !== false) {
+          const check = await this.connection.checkConnectionAndReconnect();
+          if (!check.connected) return { content: [{ type: "text", text: check.message! }], isError: true };
+        }
         return await executor(parsedArgs);
       } catch (error) {
-        return this.createErrorResponse(error as Error);
+        return this.createErrorResponse(error instanceof Error ? error : String(error));
       }
+    };
+    this.server.tool(name, description, schema, async (args: unknown): Promise<McpResponse> => {
+      if (options.requiresBot === false && !options.serializeBot) return execute(args);
+      const next = this.botQueue.then(() => execute(args));
+      this.botQueue = next.catch(() => undefined);
+      return next;
     });
   }
 

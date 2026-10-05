@@ -33,3 +33,43 @@ jobs:
 
     - name: Test
       run: npm test
+
+
+    - name: Inspection bridge and source tests
+      run: npm run test:inspection
+
+    - name: Companion syntax
+      run: |
+        node --check companion/atm10-inspector.js
+        node --check companion/atm10-create.js
+        node --check companion/atm10-universal.js
+        node --check companion/atm10-systems.js
+        node --check scripts/export-runtime-audit.mjs
+        node --check scripts/windows-audit.mjs
+
+  windows-audit:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: '22.x'
+        cache: 'npm'
+    - name: Build on Windows
+      run: npm ci --include=dev
+    - name: Launcher setup and path tests
+      run: node --test checks/windows-audit.test.mjs
+    - name: Batch launcher from a path with spaces and punctuation
+      shell: pwsh
+      env:
+        ATM10_AUDIT_NO_PAUSE: '1'
+      run: |
+        $launcherRoot = Join-Path $env:RUNNER_TEMP 'ATM10 & tools ! (check)'
+        New-Item -ItemType Directory -Force -Path (Join-Path $launcherRoot 'scripts') | Out-Null
+        Copy-Item Run-ATM10-Audit.bat $launcherRoot
+        Copy-Item scripts/windows-audit.mjs (Join-Path $launcherRoot 'scripts')
+        & (Join-Path $launcherRoot 'Run-ATM10-Audit.bat') --help
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+        & (Join-Path $launcherRoot 'Run-ATM10-Audit.bat') --unknown-option
+        if ($LASTEXITCODE -eq 0) { throw 'Launcher swallowed a failure exit code' }
+        exit 0

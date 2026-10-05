@@ -4,6 +4,35 @@ import { ToolFactory } from '../src/tool-factory.js';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { BotConnection } from '../src/bot-connection.js';
 
+test('offline tools validate arguments without attempting a bot connection', async (t) => {
+  const server = { tool: sinon.stub() } as unknown as McpServer;
+  const check = sinon.stub().rejects(new Error('must not connect'));
+  const factory = new ToolFactory(server, { checkConnectionAndReconnect: check } as unknown as BotConnection);
+  factory.registerTool('offline', 'offline', {}, async () => factory.createResponse('source'), { requiresBot: false });
+  const result = await (server.tool as sinon.SinonStub).firstCall.args[3]({});
+  t.is(result.content[0].text, 'source');
+  t.false(check.called);
+});
+
+test('bot operations serialize while offline tools remain available', async (t) => {
+  const server = { tool: sinon.stub() } as unknown as McpServer;
+  const factory = new ToolFactory(server, { checkConnectionAndReconnect: async () => ({ connected: true }) } as unknown as BotConnection);
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  const order: string[] = [];
+  factory.registerTool('one', 'one', {}, async () => { order.push('one'); await gate; return factory.createResponse('one'); });
+  factory.registerTool('two', 'two', {}, async () => { order.push('two'); return factory.createResponse('two'); });
+  factory.registerTool('offline', 'offline', {}, async () => factory.createResponse('ready'), { requiresBot: false });
+  const calls = (server.tool as sinon.SinonStub).getCalls();
+  const one = calls[0].args[3]({});
+  const two = calls[1].args[3]({});
+  t.is((await calls[2].args[3]({})).content[0].text, 'ready');
+  t.false(order.includes('two'));
+  release();
+  await Promise.all([one, two]);
+  t.deepEqual(order, ['one', 'two']);
+});
+
 test('createResponse returns proper MCP response format', (t) => {
   const mockServer = {} as McpServer;
   const mockConnection = {} as BotConnection;

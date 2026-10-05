@@ -24,3 +24,7 @@ pids/
 # Claude Code configuration
 .claude
 .idea
+
+# Runtime audit reports (local installation details)
+audits/
+atm10-runtime-audit.json
