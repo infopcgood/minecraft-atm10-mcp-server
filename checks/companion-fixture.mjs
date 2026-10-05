@@ -35,4 +35,3 @@ export async function companion(t, root, extraClasses = {}, server = {}, withCre
   const directory = join(root, 'kubejs/export/mcp');
   return new BridgeClient(directory, 1500);
 }
-

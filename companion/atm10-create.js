@@ -49,7 +49,7 @@
   function inspect(server, t, a) {
     const be = t.be;
     const identity = identify(t, a);
-    if (!(be instanceof a.Kinetic)) return { ...identity, supported: false, reason: 'Block entity is not a Create kinetic machine' };
+    if (!(be instanceof a.Kinetic)) return Object.assign({}, identity, { supported: false, reason: 'Block entity is not a Create kinetic machine' });
     const rpm = Number(be.getSpeed());
     const theoretical = Number(be.getTheoreticalSpeed());
     const data = be.saveWithoutMetadata(server.registryAccess());
@@ -59,14 +59,14 @@
       const property = it.next();
       properties[String(property.getName())] = String(t.state.getValue(property));
     }
-    const result = { ...identity, supported: true, adapter: 'create', state: properties,
+    const result = Object.assign({}, identity, { supported: true, adapter: 'create', state: properties,
       rotation: { rpm: rpm, theoreticalRpm: theoretical, generatedRpm: Number(be.getGeneratedSpeed()),
         axis: String(t.state.getBlock().getRotationAxis(t.state)).toLowerCase(),
         sign: rpm === 0 ? 'stopped' : rpm > 0 ? 'positive' : 'negative',
         signConvention: 'Create axis convention; clockwise depends on viewing face',
         overstressed: Boolean(be.isOverStressed()), meetsSpeedRequirement: Boolean(be.isSpeedRequirementFulfilled()) },
       source: be.hasSource() ? xyz(be.source) : null,
-      network: { connected: false }, controls: [] };
+      network: { connected: false }, controls: [] });
     if (be.hasNetwork() && data.contains('Network')) {
       const network = data.getCompound('Network');
       const capacity = Number(network.getFloat('Capacity'));
@@ -79,7 +79,7 @@
     if (be instanceof a.Controller || be instanceof a.Motor) {
       const motor = be instanceof a.Motor;
       result.speedSetting = { rpm: Number((motor ? be.generatedSpeed : be.targetSpeed).getValue()),
-        maxRpm: motor ? Number(a.Motor.MAX_SPEED) : Number(a.Configs.server().kinetics.maxRotationSpeed.get()),
+        maxRpm: Math.min(motor ? Number(a.Motor.MAX_SPEED) : Infinity, Number(a.Configs.server().kinetics.maxRotationSpeed.get())),
         kind: motor ? 'creative_motor' : 'rotation_speed_controller' };
       result.controls.push('set-create-speed');
     }

@@ -144,7 +144,9 @@ test('speed changes invoke native callbacks and enforce controller/server/motor 
   await assert.rejects(f.request('create_speed', { rpm: 129 }), /Integer outside/);
   await assert.rejects(f.request('create_speed', { rpm: 1.5 }), /Integer outside/);
   await assert.rejects(f.request('create_speed', { rpm: null }), /must be a number/);
-  f.select(f.Motor, 'create:creative_motor'); f.setMax(512);
+  f.select(f.Motor, 'create:creative_motor');
+  assert.equal((await f.read()).speedSetting.maxRpm, 128);
+  f.setMax(512);
   await assert.rejects(f.request('create_speed', { rpm: 257 }), /Integer outside/);
   assert.equal((await f.request('create_speed', { rpm: 0 })).after.speedSetting.rpm, 0);
 });
