@@ -45,7 +45,7 @@ export class BridgeClient {
             return { source: 'server-bridge', observedAt: response.observedAt, data: response.data };
           }
         } catch (error) {
-          if ((error as NodeJS.ErrnoException).code !== 'ENOENT' && !(error instanceof SyntaxError)) throw error;
+          if ((error as { code?: string }).code !== 'ENOENT' && !(error instanceof SyntaxError)) throw error;
         }
         await new Promise(resolve => setTimeout(resolve, 100));
       }
