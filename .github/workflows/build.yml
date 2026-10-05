@@ -39,4 +39,6 @@ jobs:
       run: npm run test:inspection
 
     - name: Companion syntax
-      run: node --check companion/atm10-inspector.js
+      run: |
+        node --check companion/atm10-inspector.js
+        node --check companion/atm10-create.js

@@ -2,7 +2,8 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 
-export type BridgeOperation = 'capabilities' | 'registry' | 'tags' | 'recipes' | 'inventory' | 'block' | 'advancements' | 'world';
+export type BridgeOperation = 'capabilities' | 'registry' | 'tags' | 'recipes' | 'inventory' | 'block' | 'advancements' | 'world'
+  | 'create_inspect' | 'create_speed' | 'create_transmission' | 'create_configure_sequence' | 'create_run_sequence';
 
 /** One bounded, correlated request at a time. Both processes share a local directory. */
 export class BridgeClient {
@@ -49,6 +50,8 @@ export class BridgeClient {
         }
         await new Promise(resolve => setTimeout(resolve, 100));
       }
+      if (operation.startsWith('create_') && operation !== 'create_inspect')
+        throw new Error('Create action timed out; its outcome is unknown. Inspect the machine before deciding whether to retry. Check the companion logs and --bridge-dir.');
       throw new Error('Server bridge timed out. Install companion/atm10-inspector.js in kubejs/server_scripts, check its logs, and point --bridge-dir to that server’s kubejs/export/mcp directory.');
     } finally {
       await rm(requestPath, { force: true });

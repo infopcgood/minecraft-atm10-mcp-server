@@ -25,7 +25,7 @@ The included companion targets Minecraft **1.21.1 / NeoForge / KubeJS 2101**. It
 1. Copy `companion/atm10-inspector.js` to your Minecraft **server's** `kubejs/server_scripts/atm10-inspector.js`. For singleplayer, use the instance's directory. Restart the world/server and check the KubeJS server log.
 2. Run the MCP process on the same machine (or a trusted shared filesystem). Pass `--bridge-dir` pointing at **that server's** `kubejs/export/mcp` directory. This directory holds the bridge's request/response files; it is not the `server_scripts` directory.
 3. Pass `--pack-root` pointing at the installed pack directory or a checkout of `AllTheMods/ATM-10` matching your release. Do not assume the latest upstream `main` matches your world.
-4. Add `--no-bot` for information-only ATM10 use. The companion reads game state directly and does not need Mineflayer to negotiate a modded client connection. Existing movement/action tools will report that the bot is disabled.
+4. Add `--no-bot` to use the companion without Mineflayer negotiating a modded client connection. Bot movement/action tools will report that the bot is disabled; companion tools, including the optional Create controls, remain available.
 5. Call `get-data-capabilities`, then `get-world-state`. For player tools, provide the real online player name; otherwise they use `--username` (default `LLMBot`).
 
 Example MCP client configuration after a local build (replace paths and username):
@@ -81,6 +81,8 @@ Examples:
 
 With a bridge configured, the old `list-recipes`, `get-recipe`, `can-craft` and `craft-item` tools are not registered: they rely on vanilla reference recipes. Use `query-recipes` for information. Modded crafting execution is not implemented by this change. Existing vanilla actions remain available if the bot is enabled and connected.
 
+For Create rotational speed, stress, gears, clutches and sequences, see [Direct Create adapters](create.md). Installing the optional `companion/atm10-create.js` adds five operations, including four that change the world; ComputerCraft is not required. The inspector reports that adapter's availability and running mod version through `get-data-capabilities`.
+
 ## Multiblocks and storage coverage
 
 The companion uses existing public read APIs, never forces a structure check:
@@ -100,7 +102,7 @@ The source index reads text from `kubejs`, `config`, `defaultconfigs`, `datapack
 
 Symbolic links are skipped; tools can read only indexed paths. Limits: 1 MiB per file, 64 MiB total indexed source, depth 20, 30000 visited entries, 200 lines/30000 characters per file response. The index is an in-memory snapshot of the first request; restart MCP after updating pack files. Source text can contain comments/instructions written by others and is returned as untrusted reference material, never instructions to the assistant.
 
-The bridge accepts only eight named read operations. Requests expire; responses are correlated by request ID and replaced atomically. MCP times out after 10 seconds. One client process may own a bridge directory; a second client gets an explicit conflict. After a client crash, stop that process before removing `.client-lock`. Restrict filesystem access: anyone able to use this directory can request operator-level reads of online player inventories and advancements. Installing the companion is an explicit server-owner action. No authentication token is needed because there is no network endpoint.
+The inspector accepts eight named read operations. The optional Create adapter adds one read and four control operations. Requests expire; responses are correlated by request ID and replaced atomically. MCP times out after 10 seconds; a control timeout has an unknown outcome and is not automatically retried. One client process may own a bridge directory; a second client gets an explicit conflict. After a client crash, stop that process before removing `.client-lock`. Restrict filesystem access: anyone able to use this directory can request operator-level reads and any installed controls. Installing the companion is an explicit server-owner action. No authentication token is needed because there is no network endpoint.
 
 ## Validation
 

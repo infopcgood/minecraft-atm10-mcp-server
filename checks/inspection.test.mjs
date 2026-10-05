@@ -1,11 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, symlink, writeFile } from 'node:fs/promises';
 import fs from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
-import vm from 'node:vm';
+import { temporary, iterable, companion } from './companion-fixture.mjs';
 
 // Dependency-free checks run even when the npm registry is unavailable.
 async function load(name) {
@@ -15,33 +14,6 @@ async function load(name) {
 const { BridgeClient } = await load('bridge-client');
 const { PackIndex } = await load('pack-index');
 const { AdvancementStore } = await load('advancement-store');
-async function temporary(t) {
-  const dir = await mkdtemp(join(tmpdir(), 'atm10-inspection-'));
-  t.after(() => rm(dir, { recursive: true, force: true }));
-  return dir;
-}
-function iterable(values) {
-  return { iterator: () => { let index = 0; return { hasNext: () => index < values.length, next: () => values[index++] }; } };
-}
-async function companion(t, root, extraClasses = {}, server = {}) {
-  let tick;
-  const classes = {
-    'java.nio.file.Files': { exists: p => fs.existsSync(join(root, p)), size: p => fs.statSync(join(root, p)).size,
-      move: (from, to) => fs.renameSync(join(root, from), join(root, to)) },
-    'java.nio.file.Paths': { get: p => p },
-    'java.nio.file.StandardCopyOption': { REPLACE_EXISTING: 1, ATOMIC_MOVE: 2 },
-    ...extraClasses
-  };
-  const context = vm.createContext({ Java: { loadClass: name => classes[name] || {} },
-    JsonIO: { readString: p => fs.readFileSync(join(root, p), 'utf8'), write: (p, value) => {
-      fs.mkdirSync(resolve(root, p, '..'), { recursive: true }); fs.writeFileSync(join(root, p), JSON.stringify(value));
-    } }, ServerEvents: { tick: fn => { tick = fn; } }, console });
-  vm.runInContext(await readFile(new URL('../companion/atm10-inspector.js', import.meta.url), 'utf8'), context);
-  const timer = setInterval(() => { for (let i = 0; i < 10; i++) tick({ server }); }, 10);
-  t.after(() => clearInterval(timer));
-  const directory = join(root, 'kubejs/export/mcp');
-  return new BridgeClient(directory, 1500);
-}
 
 test('pack search returns source provenance, pagination and line numbers without executing scripts', async t => {
   const dir = await temporary(t);
@@ -112,6 +84,12 @@ test('second MCP process cannot overwrite an active bridge request', async t => 
   await mkdir(join(dir, '.client-lock'));
   await assert.rejects(new BridgeClient(dir, 100).request('world'), /in use/);
   assert.equal(fs.existsSync(join(dir, '.client-lock')), true);
+});
+test('control timeouts report an unknown outcome and release the bridge for a follow-up inspection', async t => {
+  const dir = await temporary(t);
+  await assert.rejects(new BridgeClient(dir, 100).request('create_run_sequence', { action: 'start' }), /outcome is unknown.*Inspect the machine/);
+  assert.equal(fs.existsSync(join(dir, '.client-lock')), false);
+  assert.equal(fs.existsSync(join(dir, 'request.json')), false);
 });
 test('companion recipes preserve custom fields and isolate unsupported serializers', async t => {
   const good = { type: 'mod:machine', fluid_inputs: [{ fluid: 'minecraft:water', amount: 1000 }], energy: 2048 };

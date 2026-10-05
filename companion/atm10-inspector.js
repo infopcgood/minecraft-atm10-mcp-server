@@ -1,5 +1,6 @@
 // Install in <server>/kubejs/server_scripts/atm10-inspector.js (Minecraft 1.21.1, NeoForge, KubeJS 2101).
-// Read-only world inspection. Local filesystem access to kubejs/export/mcp grants operator-level reads.
+// World inspection; installing atm10-create.js also enables direct Create controls.
+// Local filesystem access to kubejs/export/mcp grants operator-level reads and installed controls.
 // No commands, script evaluation, inventory transfers, chunk loading, or network listener.
 (() => {
   const Files = Java.loadClass('java.nio.file.Files');
@@ -77,18 +78,23 @@
     } catch (error) { return { status: 'unknown', className: name, error: String(error) }; }
     return { status: 'unknown', className: name, reason: 'No supported formation adapter for this block entity' };
   }
-  function block(server, args) {
+  function locateBlock(server, args) {
     const dimension = String(args.dimension || 'minecraft:overworld');
     const level = server.getLevel(ResourceKey.create(RegistryKeys.DIMENSION, ResourceLocation.parse(dimension)));
     if (level === null) throw new Error('Unknown dimension');
     const pos = new BlockPos(integer(args.x, undefined, -30000000, 30000000), integer(args.y, undefined, -2048, 2048), integer(args.z, undefined, -30000000, 30000000));
     if (level.isOutsideBuildHeight(pos)) throw new Error('Position outside build height');
     if (!level.hasChunkAt(pos)) throw new Error('Chunk is not loaded; inspection does not load chunks');
+    return { dimension: dimension, level: level, pos: pos, state: level.getBlockState(pos), be: level.getBlockEntity(pos) };
+  }
+  function block(server, args) {
+    const target = locateBlock(server, args);
+    const dimension = target.dimension, level = target.level, pos = target.pos;
     const sideName = String(args.side || 'none');
     const side = sideName === 'none' ? null : Direction.byName(sideName);
     if (sideName !== 'none' && side === null) throw new Error('Invalid side');
-    const state = level.getBlockState(pos);
-    const be = level.getBlockEntity(pos);
+    const state = target.state;
+    const be = target.be;
     const result = { dimension: dimension, x: Number(pos.getX()), y: Number(pos.getY()), z: Number(pos.getZ()),
       id: String(Registries.BLOCK.getKey(state.getBlock())), state: String(state), side: sideName,
       multiblock: status(be), capabilities: {}, errors: [] };
@@ -125,8 +131,14 @@
     return result;
   }
   function handle(server, operation, args) {
+    const create = global.atm10McpCreate;
+    if (typeof operation === 'string' && operation.startsWith('create_')) {
+      if (!create) throw new Error('Install companion/atm10-create.js alongside atm10-inspector.js and restart the server');
+      return create.handle(server, operation, args, { locateBlock: locateBlock, integer: integer });
+    }
     if (operation === 'capabilities') return { protocol: 1, target: 'Minecraft 1.21.1 / NeoForge / KubeJS 2101',
       operations: ['registry', 'tags', 'recipes', 'inventory', 'block', 'advancements', 'world'],
+      create: create ? create.capabilities() : { available: false, reason: 'Optional atm10-create.js adapter is not installed' },
       multiblockAdapters: ['mekanism', 'modern_industrialization', 'modular_machinery_reborn'],
       limits: ['Loaded chunks and online players only', 'Capability views are side-dependent; AE2/RS networks and FTB quest progress need dedicated adapters', 'RecipeManager excludes some special mechanics such as anvil operations', 'Formation does not imply a machine is running'] };
     if (operation === 'registry') {

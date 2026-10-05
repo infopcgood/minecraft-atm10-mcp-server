@@ -21,6 +21,7 @@ import { registerFurnaceTools } from './tools/furnace-tools.js';
 import { BridgeClient } from './inspection/bridge-client.js';
 import { PackIndex } from './inspection/pack-index.js';
 import { registerInspectionTools } from './tools/inspection-tools.js';
+import { registerCreateTools } from './tools/create-tools.js';
 
 setupStdioFiltering();
 
@@ -64,9 +65,10 @@ async function main() {
   // Vanilla static recipes must not be presented as the modded server's active recipes.
   if (!config.bridgeDir) registerCraftingTools(factory, getBot);
   registerFurnaceTools(factory, getBot);
-  registerInspectionTools(factory, connection,
-    config.bridgeDir ? new BridgeClient(config.bridgeDir) : undefined,
+  const bridge = config.bridgeDir ? new BridgeClient(config.bridgeDir) : undefined;
+  registerInspectionTools(factory, connection, bridge,
     config.packRoot ? new PackIndex(config.packRoot) : undefined);
+  registerCreateTools(factory, bridge);
 
   process.stdin.on('end', () => {
     connection.cleanup();

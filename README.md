@@ -5,6 +5,8 @@ Fork of [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-softwar
 
 **[Read the ATM10 / vanilla setup and supported features](docs/inspection.md).** ATM10 information tools can run without a Mineflayer bot using `--no-bot --bridge-dir <server>/kubejs/export/mcp --pack-root <pack>`. Install the included companion on the server first.
 
+**[Direct Create adapters](docs/create.md)** add kinetic speed/stress inspection, controller speed settings, gearshift/clutch controls, and sequenced gearshift programs. Install the optional `companion/atm10-create.js` alongside the inspector. ComputerCraft is not required.
+
 <a href="https://github.com/yuniko-software/minecraft-mcp-server/actions">
   <img alt="CI" src="https://github.com/yuniko-software/minecraft-mcp-server/actions/workflows/build.yml/badge.svg">
 </a>
