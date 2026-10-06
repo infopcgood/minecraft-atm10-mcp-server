@@ -203,12 +203,15 @@ test('bow drawing is bounded and native release is used; an emergency interrupts
 test('beds and supported airborne placement use normal block interaction, rejecting explosive beds and missing/occluded support', async t => {
   const f = await playerFixture(t);
   await f.arm();
-  f.blocks.set('0,63,0', { id: 'minecraft:red_bed', solid: true, bed: true });
+  f.blocks.set('0,63,0', { id: 'minecraft:red_bed', solid: true, bed: true, height: 0.5625 });
   let result = await f.request('player_interact', { x: 0, y: 63, z: 0, face: 'up', sleep: true });
   assert.equal(result.attempted, true);
+  assert.equal(f.calls.find(c => c[0] === 'useBlock')[4].y, 63.5625);
   f.bedWorks = false;
   await assert.rejects(f.request('player_interact', { x: 0, y: 63, z: 0, sleep: true }), /explode/);
   f.inventory.slots[2] = stack('minecraft:cobblestone', { block: true });
+  await assert.rejects(f.request('player_place', { x: 0, y: 63, z: 0, slot: 2 }), /explode/);
+  f.bedWorks = true;
   f.ground = false; f.p.y = 64.5;
   result = await f.request('player_place', { x: 0, y: 63, z: 0, slot: 2 });
   assert.equal(result.serverConfirmed, false);

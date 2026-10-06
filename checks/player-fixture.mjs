@@ -70,6 +70,7 @@ export async function playerFixture(t) {
     getBlockState: pos => {
       const data = f.blocks.get(`${pos.x},${pos.y},${pos.z}`) || (pos.y < 64 ? { id: 'minecraft:stone', solid: true } : { id: 'minecraft:air', solid: false });
       return { getBlock: () => data.id, isAir: () => data.id === 'minecraft:air', is: tag => tag === 'beds' && data.bed,
+        getShape: () => ({ isEmpty: () => data.id === 'minecraft:air', bounds: () => ({ minX: 0, minY: 0, minZ: 0, maxX: 1, maxY: data.height || 1, maxZ: 1 }) }),
         getCollisionShape: () => ({ isEmpty: () => !data.solid }), getFluidState: () => ({ is: tag => tag === data.fluid }) };
     },
     clip: context => ({ getType: () => f.occluded ? 'MISS' : 'BLOCK', getBlockPos: () => Pos.containing(context.to.x, context.to.y, context.to.z), getDirection: () => f.hitFace || directions.up })
@@ -83,7 +84,7 @@ export async function playerFixture(t) {
       attack: (_player, target) => f.calls.push(['attack', target.id, f.currentTick]),
       useItem: (_player, hand) => { f.using = true; f.calls.push(['use', hand, inventory.selected, f.currentTick]); return 'SUCCESS'; },
       releaseUsingItem: () => { f.using = false; f.calls.push(['release', f.currentTick]); },
-      useItemOn: (_player, hand, hit) => { f.calls.push(['useBlock', hand, hit.pos, inventory.selected]); return 'SUCCESS'; }
+      useItemOn: (_player, hand, hit) => { f.calls.push(['useBlock', hand, hit.pos, inventory.selected, hit.point]); return 'SUCCESS'; }
     }
   };
   let tick, loggedOut;

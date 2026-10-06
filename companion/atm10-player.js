@@ -335,11 +335,20 @@
       if (!mc.level.hasChunkAt(pos)) throw new Error('Support/target chunk is not loaded');
       const state = mc.level.getBlockState(pos);
       if (state.isAir()) throw new Error('A real target/support block is required');
-      if (!placing && state.is(BlockTags.BEDS) && !mc.level.dimensionType().bedWorks()) throw new Error('Bed interaction refused: beds explode in this dimension');
+      if (state.is(BlockTags.BEDS) && !mc.level.dimensionType().bedWorks()) throw new Error('Bed interaction refused: beds explode in this dimension');
       if (args.sleep && (!state.is(BlockTags.BEDS) || !mc.level.dimensionType().bedWorks())) throw new Error('Sleeping requires a bed in a dimension where beds work safely');
       const slot = placing ? integer(args.slot, undefined, 0, 8) : null;
       if (placing && !(mc.player.getInventory().getItem(slot).getItem() instanceof BlockItem)) throw new Error('Selected hotbar slot must contain a block item');
-      const point = new Vec3(x + 0.5 + face.getStepX() * 0.5, y + 0.5 + face.getStepY() * 0.5, z + 0.5 + face.getStepZ() * 0.5);
+      const shape = state.getShape(mc.level, pos);
+      if (shape.isEmpty()) throw new Error('Target/support has no interactable outline');
+      const bounds = shape.bounds();
+      // Beds, slabs and other partial blocks are not full cubes. Clip still checks
+      // the exact shape, so holes/occluded faces cannot become synthetic supports.
+      function faceCoordinate(origin, min, max, step) {
+        return origin + (step > 0 ? max : step < 0 ? min : (min + max) / 2);
+      }
+      const point = new Vec3(faceCoordinate(x, bounds.minX, bounds.maxX, face.getStepX()),
+        faceCoordinate(y, bounds.minY, bounds.maxY, face.getStepY()), faceCoordinate(z, bounds.minZ, bounds.maxZ, face.getStepZ()));
       const eye = mc.player.getEyePosition();
       if (Number(eye.distanceToSqr(point)) > Math.pow(Math.min(4.5, Number(mc.player.blockInteractionRange())), 2)) throw new Error('Block face is outside survival reach');
       // Aim just inside the face so ray clipping reliably intersects the target block.
