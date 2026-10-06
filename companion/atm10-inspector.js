@@ -31,6 +31,7 @@
   const base = 'kubejs/export/mcp/';
   let ticks = 0;
   let lastId = null;
+  let pendingResponse = null, responseExpiresAt = 0;
 
   function array(iterable) {
     const result = [];
@@ -240,6 +241,7 @@
     ticks++;
     if (ticks % 20 === 0) health('ticking');
     if (ticks % 2 !== 0) return;
+    if (!flushResponse()) return;
     const path = Paths.get(base + 'request.json');
     if (!Files.exists(path)) return;
     let request;
@@ -252,20 +254,35 @@
       if (request.protocol !== 1 || !Number.isFinite(request.expiresAt) || Date.now() > request.expiresAt || request.expiresAt > Date.now() + 30000) throw new Error('Invalid or expired request');
       const response = { protocol: 1, id: request.id, ok: true, observedAt: new Date().toISOString(), data: handle(event.server, request.operation, request.args || {}) };
       if (JSON.stringify(response).length > 7 * 1024 * 1024) throw new Error('Response too large; request a smaller page');
-      publish(response);
-      lastBridgeError = null;
+      pendingResponse = response;
+      responseExpiresAt = request.expiresAt;
+      flushResponse();
     } catch (error) {
+      if (String(error).includes('NoSuchFileException') || String(error).includes('ENOENT')) return;
       lastBridgeError = String(error);
-      try {
-        if (request && request.id) publish({ protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(error) });
-        else console.warn('[ATM10 MCP] Invalid bridge request: ' + error);
-      } catch (publishError) {
-        lastBridgeError += '; cannot publish response: ' + publishError;
-        console.error('[ATM10 MCP] ' + lastBridgeError);
-      }
+      if (request && request.id) {
+        pendingResponse = { protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(error) };
+        responseExpiresAt = Math.min(Number(request.expiresAt) || Date.now(), Date.now() + 30000);
+        flushResponse();
+      } else console.warn('[ATM10 MCP] Invalid bridge request: ' + error);
       health('error');
     }
   });
+  function flushResponse() {
+    if (!pendingResponse) return true;
+    if (Date.now() > responseExpiresAt) { pendingResponse = null; return true; }
+    try {
+      publish(pendingResponse);
+      pendingResponse = null;
+      lastBridgeError = null;
+      return true;
+    } catch (error) {
+      const message = 'Cannot publish response: ' + error;
+      if (lastBridgeError !== message) console.error('[ATM10 MCP] ' + message);
+      lastBridgeError = message; health('error');
+      return false;
+    }
+  }
   function publish(response) {
     const tmp = base + 'response.tmp';
     JsonIO.write(tmp, response);

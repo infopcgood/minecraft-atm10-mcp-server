@@ -49,6 +49,17 @@ test('standing beside an obstacle does not lock out looking or supported block i
   assert.equal((await f.request('player_place', { x: 0, y: 63, z: 0, slot: 1 })).attempted, true);
 });
 
+test('a transient response publication failure retries the receipt without repeating the action', async t => {
+  const f = await playerFixture(t);
+  await f.arm();
+  f.inventory.slots[1] = stack('minecraft:cobblestone', { block: true });
+  f.publishFailures = 2;
+  const result = await f.request('player_place', { x: 0, y: 63, z: 0, slot: 1 });
+  assert.equal(result.attempted, true);
+  assert.equal(f.calls.filter(c => c[0] === 'useBlock').length, 1);
+  assert.ok(f.errors.some(e => e.includes('AccessDeniedException')));
+});
+
 test('nearby hostile interrupts ordinary work; attack respects cooldown, sight and no-PvP policy', async t => {
   const f = await playerFixture(t);
   await f.arm();

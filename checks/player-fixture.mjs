@@ -92,7 +92,10 @@ export async function playerFixture(t) {
   let tick, loggedOut;
   const classes = {
     'java.nio.file.Files': { exists: path => fs.existsSync(join(root, path)), size: path => fs.statSync(join(root, path)).size,
-      move: (from, to) => fs.renameSync(join(root, from), join(root, to)) },
+      move: (from, to) => {
+        if (f.publishFailures > 0) { f.publishFailures--; throw new Error('java.nio.file.AccessDeniedException: response.json'); }
+        fs.renameSync(join(root, from), join(root, to));
+      } },
     'java.nio.file.Paths': { get: p => p }, 'java.nio.file.StandardCopyOption': { REPLACE_EXISTING: 1, ATOMIC_MOVE: 2 },
     'net.minecraft.core.BlockPos': Pos,
     'net.minecraft.core.registries.BuiltInRegistries': { ITEM: { getKey: item => item.id }, BLOCK: { getKey: v => v }, ENTITY_TYPE: { getKey: v => v } },
@@ -117,7 +120,7 @@ export async function playerFixture(t) {
   // Drive only requested ticks: tests can inspect the very next reaction deterministically.
   const timer = setInterval(() => { if (f.autoPump && fs.existsSync(join(directory, 'request.json'))) f.step(); }, 10);
   f.client = new PlayerClient(directory);
-  t.after(async () => { clearInterval(timer); try { await f.client.stop(); } finally { await removeRoot(); } });
+  t.after(async () => { clearInterval(timer); if (f.errors.length) t.diagnostic(f.errors.join('\n')); try { await f.client.stop(); } finally { await removeRoot(); } });
   Object.assign(f, { p, inventory, mc, directions, loggedOut });
   f.state = async () => (await f.client.request('player_state')).data;
   f.arm = async (config = {}) => (await f.client.configure({ enabled: true, ...config })).data;

@@ -47,5 +47,5 @@ test('response publication errors are recorded instead of disappearing into a ge
   });
   await assert.rejects(client.request('capabilities'), /AccessDeniedException/);
   const report = await diagnoseBridge(client.directory);
-  assert.match(report.health.error, /cannot publish response/);
+  assert.match(report.health.error, /cannot publish response/i);
 });

@@ -41,6 +41,7 @@
     let tickCount = 0, lastId = null, action = null, heldUse = null, clutchUntil = 0, attackUntil = 0;
     let reason = 'disabled', lastHealth = null, hurtUntil = 0;
     let nextAction = 1;
+    let pendingResponse = null, responseExpiresAt = 0;
     let modKey = null, inReaction = false, emergency = false;
     const events = [], ownedKeys = {};
     const keyNames = { forward: 'keyUp', back: 'keyDown', left: 'keyLeft', right: 'keyRight', jump: 'keyJump', sneak: 'keyShift', sprint: 'keySprint', use: 'keyUse' };
@@ -79,6 +80,21 @@
       catch (e) {
         if (!String(e).includes('AtomicMoveNotSupported')) throw e;
         Files.move(Paths.get(base + 'response.tmp'), Paths.get(base + 'response.json'), Copy.REPLACE_EXISTING);
+      }
+    }
+    function flushResponse() {
+      if (!pendingResponse) return true;
+      if (Date.now() > responseExpiresAt) { pendingResponse = null; return true; }
+      try {
+        publish(pendingResponse);
+        pendingResponse = null;
+        lastError = null;
+        return true;
+      } catch (e) {
+        const error = 'Cannot publish player response: ' + e;
+        if (lastError !== error) console.error('[ATM10 MCP] ' + error);
+        lastError = error; health('error');
+        return false;
       }
     }
     function keys(values) {
@@ -506,6 +522,8 @@
         emergency = false;
         inReaction = true;
         try { react(); } finally { inReaction = false; } // Never waits for the MCP request queue.
+        // Retry only the saved acknowledgement, never its world/input operation.
+        if (!flushResponse()) return;
         const request = read('request.json', 16384);
         if (request && request.id !== lastId) {
           if (typeof request.id !== 'string' || request.id.length > 64) throw new Error('Invalid request ID');
@@ -515,7 +533,9 @@
             if (request.protocol !== 1 || !Number.isFinite(request.expiresAt) || request.expiresAt < Date.now() || request.expiresAt > Date.now() + 30000) throw new Error('Invalid or expired request');
             response = { protocol: 1, id: request.id, ok: true, observedAt: new Date().toISOString(), data: handle(request.operation, request.args || {}) };
           } catch (e) { response = { protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(e) }; }
-          publish(response);
+          pendingResponse = response;
+          responseExpiresAt = Math.min(Number(request.expiresAt) || Date.now(), Date.now() + 30000);
+          if (!flushResponse()) return;
         }
         if (tickCount % 20 === 0) { lastError = null; health('ticking'); }
       } catch (e) {
