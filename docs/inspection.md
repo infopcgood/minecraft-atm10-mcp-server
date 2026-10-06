@@ -49,6 +49,28 @@ Example MCP client configuration after a local build (replace paths and username
 
 Windows paths work as well; escape backslashes in JSON, or use forward slashes. Remote Minecraft servers require running the MCP process on the server machine or sharing the bridge directory securely; pointing at an unrelated client installation will time out. There is no HTTP listener.
 
+For actual player control with local survival reactions, install the separate **client** companion and select the [survival profile](survival.md). Installing the server inspectors alone does not control a player or defend against attacks.
+
+## Bridge timeouts
+
+The timeout stack trace alone cannot identify a specific cause. The updated inspector writes startup/tick/error heartbeats to `kubejs/export/mcp/health.json`; the updated MCP includes directory, installation and recent KubeJS log diagnostics in timeout errors. Run `diagnose-minecraft-bridge` (channel `server` or `player`) without needing a game reply.
+
+On Linux, from the repository root, reinstall/build using:
+
+```bash
+node scripts/windows-audit.mjs --pack-root "/path/to/ATM10" --player-root "/path/to/ATM10"
+```
+
+Restart the client/server after updating companions and enter an unpaused world. Use the actual server directory for `--bridge-dir`; the client bridge uses `kubejs/export/mcp-player`. A stopped, paused or incorrectly configured server cannot answer, regardless of timeout length. The server now polls requests every two ticks and reports response publication errors; filesystems without atomic rename get a targeted fallback.
+
+The audit helper saves a `*-failure.json` report when runtime export fails. To collect just filesystem diagnostics after building, even without a running world:
+
+```bash
+node scripts/export-runtime-audit.mjs --bridge-dir "/path/to/ATM10/kubejs/export/mcp" --diagnose-only --output bridge-diagnostics.json
+```
+
+Keep a single MCP/audit process per bridge directory. After a crash, stop the old process before removing `.client-lock`. Diagnostic files contain local paths and matching error-log lines. No machine construction is needed for these checks.
+
 ## Information tools
 
 | Tool | Parameters and behavior |

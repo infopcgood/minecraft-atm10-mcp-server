@@ -5,6 +5,8 @@ Fork of [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-softwar
 
 **[Read the ATM10 / vanilla setup and supported features](docs/inspection.md).** ATM10 information tools can run without a Mineflayer bot using `--no-bot --bridge-dir <server>/kubejs/export/mcp --pack-root <pack>`. Install the included companion on the server first.
 
+**[Survival player control](docs/survival.md):** install the new client companion and set `--player-bridge-dir` to control your logged-in player, with local threat reactions, bounded movement, food/shield use, best-effort water clutches, beds, bows and supported block placement. Modded gun keybindings are discoverable, but gun compatibility is unverified. The Linux/Windows setup helper can install both companions and generate your MCP configuration. This profile has no creative flight or direct Create operator mutations.
+
 **[Runtime discovery and coverage](docs/coverage.md)** adds loaded-mod inventory, all registries, active datapack resources, typed block/entity data, capability discovery, AE2/Refined Storage networks, Mekanism storage/heat, Ars source, PneumaticCraft pressure, Immersive Engineering saved state, ZeroCore multiblocks, and FTB quest progress. Install `atm10-universal.js` and `atm10-systems.js` alongside the inspector. Coverage reports distinguish available readers from unverified mechanics; this is not a claim of complete support for every mod.
 
 **Windows runtime audit:** extract the complete repository, install Node.js 22.14+ with npm, and double-click `Run-ATM10-Audit.bat`. It guides companion setup, builds the server and saves your report in `audits`. See [Windows instructions](docs/coverage.md#install).

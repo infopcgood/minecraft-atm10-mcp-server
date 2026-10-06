@@ -2,9 +2,9 @@
 import { parseArgs } from 'node:util';
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { BridgeClient } from '../dist/inspection/bridge-client.js';
+import { BridgeClient, diagnoseBridge } from '../dist/inspection/bridge-client.js';
 
-const { values } = parseArgs({ options: { 'bridge-dir': { type: 'string' }, output: { type: 'string', default: 'atm10-runtime-audit.json' } } });
+const { values } = parseArgs({ options: { 'bridge-dir': { type: 'string' }, output: { type: 'string', default: 'atm10-runtime-audit.json' }, 'diagnose-only': { type: 'boolean' } } });
 if (!values['bridge-dir']) throw new Error('Usage: npm run audit:runtime -- --bridge-dir /server/kubejs/export/mcp [--output audit.json]');
 const bridge = new BridgeClient(values['bridge-dir']);
 async function collect(operation) {
@@ -21,10 +21,25 @@ async function collect(operation) {
   }
   throw new Error('Runtime audit exceeded page limit');
 }
-const capabilities = await bridge.request('capabilities');
-const mods = await collect('pack_mods');
-const registries = await collect('pack_registry');
 const output = resolve(values.output);
-await writeFile(output, JSON.stringify({ observedAt: new Date().toISOString(), capabilities, mods, registries,
-  note: 'Runtime inventory and API availability only. This export does not certify every mechanic or execute world mutations.' }, null, 2) + '\n');
-console.log(`Wrote ${mods.length} loaded mods and ${registries.length} registries to ${output}`);
+try {
+  if (values['diagnose-only']) {
+    await writeFile(output, JSON.stringify({ observedAt: new Date().toISOString(), diagnosticsOnly: true,
+      diagnostics: await diagnoseBridge(bridge.directory) }, null, 2) + '\n');
+    console.log(`Wrote bridge diagnostics to ${output}`);
+  } else {
+    const capabilities = await bridge.request('capabilities');
+    const mods = await collect('pack_mods');
+    const registries = await collect('pack_registry');
+    await writeFile(output, JSON.stringify({ observedAt: new Date().toISOString(), capabilities, mods, registries,
+      note: 'Runtime inventory and API availability only. This export does not certify every mechanic or execute world mutations.' }, null, 2) + '\n');
+    console.log(`Wrote ${mods.length} loaded mods and ${registries.length} registries to ${output}`);
+  }
+} catch (error) {
+  const failure = output.replace(/\.json$/i, '') + '-failure.json';
+  await writeFile(failure, JSON.stringify({ observedAt: new Date().toISOString(), success: false, error: String(error),
+    diagnostics: await diagnoseBridge(bridge.directory) }, null, 2) + '\n');
+  console.error(String(error));
+  console.error(`Diagnostic report saved to ${failure}. Share this file if the export cannot finish.`);
+  process.exitCode = 1;
+}

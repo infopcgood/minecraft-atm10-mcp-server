@@ -6,14 +6,18 @@ import { ToolFactory } from '../src/tool-factory.js';
 import { BridgeClient } from '../src/inspection/bridge-client.js';
 import { registerCreateTools } from '../src/tools/create-tools.js';
 
-function setup(bridge?: BridgeClient) {
+function setup(bridge?: BridgeClient, allowControls = true) {
   const server = { tool: sinon.stub() } as unknown as McpServer;
   const connect = sinon.stub().rejects(new Error('Create tools must not connect a bot'));
-  registerCreateTools(new ToolFactory(server, { checkConnectionAndReconnect: connect } as unknown as BotConnection), bridge);
+  registerCreateTools(new ToolFactory(server, { checkConnectionAndReconnect: connect } as unknown as BotConnection), bridge, allowControls);
   const calls = (server.tool as sinon.SinonStub).getCalls();
   return { calls, connect, invoke: (name: string, args: unknown) => calls.find(call => call.args[0] === name)!.args[3](args) };
 }
 const position = { x: 1, y: 64, z: 2 };
+
+test('survival profile exposes Create inspection without server-owner mutations', t => {
+  t.deepEqual(setup(undefined, false).calls.map(call => call.args[0]), ['inspect-create-machine']);
+});
 
 test('Create tools forward named operations with no bot and preserve server receipts', async t => {
   const bridge = new BridgeClient('/unused');

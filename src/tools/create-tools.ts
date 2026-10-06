@@ -22,7 +22,7 @@ const step = z.object({
     ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Only movement steps accept a speed modifier' });
 });
 
-export function registerCreateTools(factory: ToolFactory, bridge?: BridgeClient): void {
+export function registerCreateTools(factory: ToolFactory, bridge?: BridgeClient, allowControls = true): void {
   const register = (name: string, description: string, schema: z.ZodRawShape, operation: BridgeOperation) => {
     factory.registerTool(name, description, schema, async args => {
       if (!bridge) throw new Error('Create tools require --bridge-dir and both companion/atm10-inspector.js and companion/atm10-create.js in the server’s kubejs/server_scripts directory.');
@@ -31,6 +31,8 @@ export function registerCreateTools(factory: ToolFactory, bridge?: BridgeClient)
   };
   register('inspect-create-machine', 'Read a loaded Create kinetic block: actual/theoretical/generated RPM, rotation axis/sign, stress, cached network totals, source, and gear/controller/sequence details. No world changes; requires the direct Create companion.',
     position, 'create_inspect');
+  // Server-owner mutations bypass player reach and do not belong in the survival profile.
+  if (!allowControls) return;
   register('set-create-speed', 'Change the signed RPM setting of a Create rotation speed controller or creative motor using its native callback. Respects server speed limits; does not set arbitrary shafts or generate power for controllers. Returns before/after readings; propagation may take ticks.',
     { ...position, rpm: z.number().int().min(-2147483647).max(2147483647) }, 'create_speed');
   register('set-create-transmission', 'Set a Create gearshift or clutch powered state using native detach/reattach behavior. powered=true reverses a gearshift or disengages a clutch. This is a one-time state change; later redstone updates can override it.',
