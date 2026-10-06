@@ -257,7 +257,7 @@
       responseExpiresAt = request.expiresAt;
       flushResponse();
     } catch (error) {
-      if (String(error).includes('NoSuchFileException') || String(error).includes('ENOENT')) return;
+      if (!request && (String(error).includes('NoSuchFileException') || String(error).includes('ENOENT'))) return;
       lastBridgeError = String(error);
       if (request && request.id) {
         pendingResponse = { protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(error) };

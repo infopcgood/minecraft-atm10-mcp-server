@@ -48,3 +48,9 @@ test('response publication errors are recorded instead of disappearing into a ge
   const report = await diagnoseBridge(client.directory);
   assert.match(report.health.error, /cannot publish response/i);
 });
+
+test('a reader filesystem error is returned rather than mistaken for a removed request', async t => {
+  const root = await temporary(t);
+  const client = await companion(t, root, {}, { getAllLevels: () => { throw Error('java.nio.file.NoSuchFileException: reader-data'); } });
+  await assert.rejects(client.request('world'), /NoSuchFileException: reader-data/);
+});

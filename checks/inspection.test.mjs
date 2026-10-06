@@ -4,14 +4,13 @@ import { mkdir, readFile, symlink, writeFile } from 'node:fs/promises';
 import fs from 'node:fs';
 import { join } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
-import { temporary, iterable, companion } from './companion-fixture.mjs';
+import { temporary, iterable, companion, BridgeClient } from './companion-fixture.mjs';
 
 // Dependency-free checks run even when the npm registry is unavailable.
 async function load(name) {
   const code = stripTypeScriptTypes(await readFile(new URL(`../src/inspection/${name}.ts`, import.meta.url), 'utf8'), { mode: 'transform' });
   return import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
 }
-const { BridgeClient } = await load('bridge-client');
 const { PackIndex } = await load('pack-index');
 const { AdvancementStore } = await load('advancement-store');
 
