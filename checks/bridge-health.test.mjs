@@ -3,8 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { join } from 'node:path';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
-import { temporary, companion } from './companion-fixture.mjs';
-import { BridgeClient, diagnoseBridge } from './player-fixture.mjs';
+import { temporary, companion, BridgeClient, diagnoseBridge } from './companion-fixture.mjs';
 
 test('timeout diagnostics distinguish missing scripts, stale ticks and explicit load failures with bounded log evidence', async t => {
   const root = await temporary(t), dir = join(root, 'kubejs/export/mcp');

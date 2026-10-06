@@ -3,13 +3,10 @@ import fs from 'node:fs';
 import { join, resolve } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
 import vm from 'node:vm';
-import { temporary, iterable } from './companion-fixture.mjs';
+import { temporary, iterable, bridgeURL } from './companion-fixture.mjs';
 
-const bridgeSource = stripTypeScriptTypes(await readFile(new URL('../src/inspection/bridge-client.ts', import.meta.url), 'utf8'), { mode: 'transform' });
-const bridgeURL = `data:text/javascript;base64,${Buffer.from(bridgeSource + '\n//# sourceURL=bridge-client.fixture.js').toString('base64')}`;
 const playerSource = stripTypeScriptTypes(await readFile(new URL('../src/inspection/player-client.ts', import.meta.url), 'utf8'), { mode: 'transform' }).replace("'./bridge-client.js'", `'${bridgeURL}'`);
 const { PlayerClient } = await import(`data:text/javascript;base64,${Buffer.from(playerSource + '\n//# sourceURL=player-client.fixture.js').toString('base64')}`);
-export const { BridgeClient, diagnoseBridge } = await import(bridgeURL);
 
 export class Vec {
   constructor(x, y, z) { this.x = x; this.y = y; this.z = z; }

@@ -160,7 +160,7 @@ An empty world is sufficient. Remote inspection needs the actual server folder.`
     if (playerRoot) {
       const configuration = join(outputDirectory, 'mcp-player-config.json');
       await writeFile(configuration, JSON.stringify({ mcpServers: { 'minecraft-atm10': { command: process.execPath,
-        args: [join(repository, 'dist', 'main.js'), '--no-bot', '--pack-root', root, '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'),
+        args: [join(repository, 'dist', 'main.js'), '--pack-root', root, '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'),
           '--player-bridge-dir', join(playerRoot, 'kubejs', 'export', 'mcp-player')] } } }, null, 2) + '\n');
       console.log(`MCP client configuration: ${configuration}`);
     }

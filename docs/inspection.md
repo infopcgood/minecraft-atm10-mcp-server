@@ -55,11 +55,7 @@ For actual player control with local survival reactions, install the separate **
 
 The timeout stack trace alone cannot identify a specific cause. The updated inspector writes startup/tick/error heartbeats to `kubejs/export/mcp/health.json`; the updated MCP includes directory, installation and recent KubeJS log diagnostics in timeout errors. Run `diagnose-minecraft-bridge` (channel `server` or `player`) without needing a game reply.
 
-On Linux, from the repository root, reinstall/build using:
-
-```bash
-node scripts/windows-audit.mjs --pack-root "/path/to/ATM10" --player-root "/path/to/ATM10"
-```
+Use the [Linux/Windows setup helper](survival.md#install-on-linux-or-windows) to reinstall companions and rebuild the MCP.
 
 Restart the client/server after updating companions and enter an unpaused world. Use the actual server directory for `--bridge-dir`; the client bridge uses `kubejs/export/mcp-player`. A stopped, paused or incorrectly configured server cannot answer, regardless of timeout length. The server now polls requests every two ticks and reports response publication errors; filesystems without atomic rename get a targeted fallback. Transient publication failures retry the saved response until request expiry without executing the action again.
 

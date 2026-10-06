@@ -3,11 +3,11 @@
 // Local filesystem access to kubejs/export/mcp grants operator-level reads and installed controls.
 // No commands, script evaluation, inventory transfers, chunk loading, or network listener.
 (() => {
-  const bridgeBase = 'kubejs/export/mcp/';
+  const base = 'kubejs/export/mcp/';
   let lastBridgeError = null;
   let lastRequest = null;
   function health(status) {
-    try { JsonIO.write(bridgeBase + 'health.json', { protocol: 1, bridgeVersion: 2, channel: 'server',
+    try { JsonIO.write(base + 'health.json', { protocol: 1, bridgeVersion: 2, channel: 'server',
       status: status, observedAt: new Date().toISOString(), lastRequest: lastRequest, error: lastBridgeError }); }
     catch (error) { console.error('[ATM10 MCP] Cannot write health file: ' + error); }
   }
@@ -28,7 +28,6 @@
   const ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack');
   const RegistryOps = Java.loadClass('net.minecraft.resources.RegistryOps');
   const JsonOps = Java.loadClass('com.mojang.serialization.JsonOps');
-  const base = 'kubejs/export/mcp/';
   let ticks = 0;
   let lastId = null;
   let pendingResponse = null, responseExpiresAt = 0;

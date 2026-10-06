@@ -53,8 +53,8 @@
       if (events.length > 30) events.shift();
     }
     function integer(value, fallback, min, max) {
-      const n = value === undefined ? fallback : Number(value);
-      if (!Number.isInteger(n) || n < min || n > max) throw new Error('Integer outside allowed range');
+      const n = number(value, fallback, min, max);
+      if (!Number.isInteger(n)) throw new Error('Integer required');
       return n;
     }
     function number(value, fallback, min, max) {
@@ -114,7 +114,7 @@
     }
     function interrupt(why) {
       if (inReaction) emergency = true;
-      if (modKey) { modKey.binding.setDown(false); modKey = null; }
+      if (modKey) { modKey.setDown(false); modKey = null; }
       if (action) { event('interrupted', action.id + ': ' + why); action = null; }
       reason = why;
     }
@@ -412,7 +412,7 @@
         if (binding.isUnbound() || String(binding.getKeyModifier()) !== 'NONE') throw new Error('Assign this binding an unmodified key before using it');
         if (bindings().some(other => String(other.getName()) !== String(binding.getName()) && other.getKey().equals(binding.getKey()))) throw new Error('This key is shared by multiple bindings; assign a unique key first');
         schedule('keybinding', { name: String(args.name) }, ticks);
-        modKey = { binding: binding, until: tickCount + ticks };
+        modKey = binding;
         binding.setDown(true); KeyMapping.click(binding.getKey());
         return { accepted: true, actionId: action.id, binding: String(args.name), outcome: 'mod-specific and unverified' };
       }
@@ -466,7 +466,7 @@
       if (GLFW.glfwGetKey(mc.getWindow().getWindow(), GLFW.GLFW_KEY_F8) === GLFW.GLFW_PRESS) { disarm('F8 emergency stop'); return; }
       const p = mc.player, currentHealth = Number(p.getHealth());
       if (p.isSleeping()) { disarm('sleeping'); return; }
-      if (modKey && tickCount >= modKey.until) { modKey.binding.setDown(false); modKey = null; }
+      if (modKey && action && tickCount >= action.until) { modKey.setDown(false); modKey = null; }
       if (lastHealth !== null && currentHealth < lastHealth) { hurtUntil = tickCount + 40; event('damage', 'Health decreased from ' + lastHealth + ' to ' + currentHealth); }
       lastHealth = currentHealth;
       if (clutch()) return;
