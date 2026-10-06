@@ -486,7 +486,8 @@
         const length = Math.sqrt(velocity.x * velocity.x + velocity.z * velocity.z);
         vector = { x: velocity.x / length, z: velocity.z / length };
       }
-      if (p.onGround() && !safeDirection(vector.x, vector.z, true)) {
+      const moving = action && action.kind === 'move' || velocity.x * velocity.x + velocity.z * velocity.z > 0.001;
+      if (moving && p.onGround() && !safeDirection(vector.x, vector.z, true)) {
         interrupt('ledge, obstacle or hazardous ground'); finishUse(); keys({ sneak: true });
         event('reaction', 'Stopped unsafe ground movement'); return;
       }

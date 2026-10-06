@@ -38,6 +38,17 @@ test('a new ledge interrupts movement on the next client tick without an MCP req
   assert.ok(state.events.some(e => e.type === 'interrupted' && e.detail.includes('ledge')));
 });
 
+test('standing beside an obstacle does not lock out looking or supported block interaction', async t => {
+  const f = await playerFixture(t);
+  await f.arm();
+  f.blocks.set('0,64,1', { id: 'minecraft:stone', solid: true });
+  f.step();
+  const look = await f.request('player_look', { yaw: 90, pitch: 20 });
+  assert.equal(look.applied, true);
+  f.inventory.slots[1] = stack('minecraft:cobblestone', { block: true });
+  assert.equal((await f.request('player_place', { x: 0, y: 63, z: 0, slot: 1 })).attempted, true);
+});
+
 test('nearby hostile interrupts ordinary work; attack respects cooldown, sight and no-PvP policy', async t => {
   const f = await playerFixture(t);
   await f.arm();

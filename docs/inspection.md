@@ -133,11 +133,4 @@ The inspector accepts eight named read operations. Universal discovery and syste
 
 Run `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm test` and `npm run test:inspection`. The latter uses Node's built-in test runner and TypeScript stripping, with no npm dependencies. It exercises the real bridge client against the companion in a mocked JVM API environment, source containment, pagination, recipe serialization errors, state transitions and timeout handling. This is not a live NeoForge test.
 
-Before relying on a target ATM10 release, perform this game smoke test:
-
-1. Confirm capabilities and a known vanilla/modded registry ID and tag.
-2. Compare an overridden recipe's returned JSON against the in-game recipe viewer.
-3. Compare chest contents and a side-configured machine's slots/tanks against its UI.
-4. Inspect a supported controller before and after completing its structure.
-5. Compare one player's advancement progress with the advancement UI.
-6. Disconnect/reconnect, query an unloaded chunk, and stop the game while a query is pending; confirm explicit errors rather than stale success.
+An empty world can establish loaded mods, registries, recipe serialization and bridge health without building machines. This change does not require a constructed test world. Per-machine formation, UI equivalence and custom interactions remain unverified until exercised on the target release; mocked tests and discovery alone cannot certify them. See [survival validation](survival.md#validation-and-compatibility-boundary) for the client controller's tested scenarios and limits.
