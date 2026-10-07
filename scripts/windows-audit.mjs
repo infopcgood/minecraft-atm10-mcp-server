@@ -3,7 +3,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { constants } from 'node:fs';
 import { copyFile, mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createInterface } from 'node:readline/promises';
 import { parseArgs } from 'node:util';
@@ -30,12 +30,12 @@ export async function validatePack(root) {
   throw new Error('No kubejs folder found. Choose the ATM10 instance/server folder, not its saves or kubejs subfolder.');
 }
 
-export async function companionUpdates(repo, root) {
+export async function companionUpdates(repo, root, player = false) {
   await validatePack(root);
   const changes = [];
-  for (const name of companionFiles) {
+  for (const name of player ? ['atm10-player.js'] : companionFiles) {
     const source = join(repo, 'companion', name);
-    const destination = join(root, 'kubejs', 'server_scripts', name);
+    const destination = join(root, 'kubejs', player ? 'client_scripts' : 'server_scripts', name);
     const contents = await readFile(source);
     const previous = await optionalFile(destination);
     if (!previous?.equals(contents)) changes.push({ name, destination, contents, previous });
@@ -52,8 +52,8 @@ export async function installCompanions(root, changes) {
     await mkdir(backup, { recursive: true });
     for (const change of existing) await copyFile(change.destination, join(backup, change.name), constants.COPYFILE_EXCL);
   }
-  await mkdir(join(root, 'kubejs', 'server_scripts'), { recursive: true });
   for (const change of changes) {
+    await mkdir(dirname(change.destination), { recursive: true });
     const temporary = change.destination + '.' + randomUUID() + '.tmp';
     try {
       await writeFile(temporary, change.contents, { flag: 'wx' });
@@ -96,9 +96,21 @@ async function build() {
 }
 
 export async function main(argv = process.argv.slice(2)) {
-  const { values } = parseArgs({ args: argv, options: { help: { type: 'boolean', short: 'h' }, 'pack-root': { type: 'string' } } });
+  const { values } = parseArgs({ args: argv, options: { help: { type: 'boolean', short: 'h' }, 'pack-root': { type: 'string' }, 'player-root': { type: 'string' }, 'debug-world': { type: 'boolean' } } });
   if (values.help) {
-    console.log('ATM10 Runtime Audit\n\nDouble-click Run-ATM10-Audit.bat, or run:\n  Run-ATM10-Audit.bat --pack-root "C:\\Games\\ATM10"\n\nRequires Node.js >=22.14 with npm and the complete extracted repository.\nPrompts before updating read-only companion scripts; existing files are backed up.\nBuilds the server, then exports audits/atm10-runtime-audit-<timestamp>.json.\nKeep the game running during export; remote servers need a shared server folder.');
+    console.log(`ATM10 Runtime Audit and optional player setup
+
+Windows: double-click Run-ATM10-Audit.bat
+Linux:   node scripts/windows-audit.mjs --pack-root "/path/to/ATM10"
+Optional: --player-root "/path/to/client/ATM10" installs survival controls.
+Optional: --debug-world scans loaded debug display blocks and samples readers.
+
+Requires Node.js >=22.14 with npm and the complete repository.
+Changed companions are backed up outside executable script folders.
+Builds the MCP and exports audits/atm10-runtime-audit-<timestamp>.json.
+Failures save a diagnostic JSON; player setup also saves mcp-player-config.json.
+Restart the game after installation and keep a world running during export.
+An empty world is sufficient. Remote inspection needs the actual server folder.`);
     return;
   }
   const [major, minor] = process.versions.node.split('.').map(Number);
@@ -124,11 +136,23 @@ export async function main(argv = process.argv.slice(2)) {
       console.log('Scripts installed. Restart Minecraft/the server before continuing to the export.');
     } else console.log('Companion files are up to date.');
 
+    let playerRoot;
+    const installPlayer = values['player-root'] || /^(y|yes)$/i.test((await rl.question('Also install survival controls for your logged-in player? [y/N]: ')).trim());
+    if (installPlayer) {
+      playerRoot = normalizeFolder(values['player-root'] || (await rl.question(`Minecraft CLIENT instance folder [${root}]: `)).trim() || root);
+      const playerChanges = await companionUpdates(repository, playerRoot, true);
+      const backup = await installCompanions(playerRoot, playerChanges);
+      if (backup) console.log(`Player companion backup: ${backup}`);
+      console.log('Player companion installed in client_scripts. Restart the Minecraft CLIENT. Control remains disabled until configure-survival is called.');
+    }
+
     console.log('\n[3/4] Prepare the MCP server.');
     rl.pause();
     try { await build(); } finally { rl.resume(); }
 
     console.log('\n[4/4] Export the runtime audit.');
+    const debugWorld = values['debug-world'] || /^(y|yes)$/i.test((await rl.question('Audit a Minecraft debug world for additional block-state coverage? [y/N]: ')).trim());
+    if (debugWorld) console.log('Enter a debug world and keep it unpaused. The scan covers X/Z 1..128 in loaded chunks; no machines need to be built. Survival control is not enabled by this audit.');
     console.log(changes.length ? 'Restart the game/server now, then enter your world and keep it running.' : 'Start the game/server, enter your world and keep it running.');
     console.log('Stop any MCP client using this server bridge while the export runs.');
     console.log('Wait until the world has finished loading.');
@@ -136,10 +160,17 @@ export async function main(argv = process.argv.slice(2)) {
     if (ready === 'q') { console.log('Export cancelled. You can run this launcher again later.'); return; }
     const outputDirectory = join(repository, 'audits');
     await mkdir(outputDirectory, { recursive: true });
+    if (playerRoot) {
+      const configuration = join(outputDirectory, 'mcp-player-config.json');
+      await writeFile(configuration, JSON.stringify({ mcpServers: { 'minecraft-atm10': { command: process.execPath,
+        args: [join(repository, 'dist', 'main.js'), '--pack-root', root, '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'),
+          '--player-bridge-dir', join(playerRoot, 'kubejs', 'export', 'mcp-player')] } } }, null, 2) + '\n');
+      console.log(`MCP client configuration: ${configuration}`);
+    }
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
     const output = join(outputDirectory, `atm10-runtime-audit-${stamp}-${randomUUID().slice(0, 8)}.json`);
     rl.pause();
-    await runProgram(process.execPath, [join(repository, 'scripts', 'export-runtime-audit.mjs'), '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'), '--output', output]);
+    await runProgram(process.execPath, [join(repository, 'scripts', 'export-runtime-audit.mjs'), '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'), '--output', output, ...(debugWorld ? ['--debug-world'] : [])]);
     console.log(`\nAudit complete. Share this JSON file together with your ATM10 release:\n${output}`);
   } finally { rl.close(); }
 }

@@ -49,6 +49,24 @@ Example MCP client configuration after a local build (replace paths and username
 
 Windows paths work as well; escape backslashes in JSON, or use forward slashes. Remote Minecraft servers require running the MCP process on the server machine or sharing the bridge directory securely; pointing at an unrelated client installation will time out. There is no HTTP listener.
 
+For actual player control with local survival reactions, install the separate **client** companion and select the [survival profile](survival.md). Installing the server inspectors alone does not control a player or defend against attacks.
+
+## Bridge timeouts
+
+The timeout stack trace alone cannot identify a specific cause. The updated inspector writes startup/tick/error heartbeats to `kubejs/export/mcp/health.json`; the updated MCP includes directory, installation and recent KubeJS log diagnostics in timeout errors. Run `diagnose-minecraft-bridge` (channel `server` or `player`) without needing a game reply.
+
+Use the [Linux/Windows setup helper](survival.md#install-on-linux-or-windows) to reinstall companions and rebuild the MCP.
+
+Restart the client/server after updating companions and enter an unpaused world. Use the actual server directory for `--bridge-dir`; the client bridge uses `kubejs/export/mcp-player`. A stopped, paused or incorrectly configured server cannot answer, regardless of timeout length. The server now polls requests every two ticks and reports response publication errors; filesystems without atomic rename get a targeted fallback. Transient publication failures retry the saved response until request expiry without executing the action again.
+
+The audit helper saves a `*-failure.json` report when runtime export fails. To collect just filesystem diagnostics after building, even without a running world:
+
+```bash
+node scripts/export-runtime-audit.mjs --bridge-dir "/path/to/ATM10/kubejs/export/mcp" --diagnose-only --output bridge-diagnostics.json
+```
+
+Keep a single MCP/audit process per bridge directory. After a crash, stop the old process before removing `.client-lock`. Diagnostic files contain local paths and matching error-log lines. No machine construction is needed for these checks.
+
 ## Information tools
 
 | Tool | Parameters and behavior |
@@ -105,17 +123,10 @@ The source index reads text from `kubejs`, `config`, `defaultconfigs`, `datapack
 
 Symbolic links are skipped; tools can read only indexed paths. Limits: 1 MiB per file, 64 MiB total indexed source, depth 20, 30000 visited entries, 200 lines/30000 characters per file response. The index is an in-memory snapshot of the first request; restart MCP after updating pack files. Source text can contain comments/instructions written by others and is returned as untrusted reference material, never instructions to the assistant.
 
-The inspector accepts eight named read operations. Universal discovery and systems add ten read operations; the optional Create adapter adds one read and four control operations. Requests expire; responses are correlated by request ID and replaced atomically. MCP times out after 10 seconds; a control timeout has an unknown outcome and is not automatically retried. One request at a time may own a bridge directory; a competing client gets an explicit conflict. After a client crash, stop that process before removing `.client-lock`. Restrict filesystem access: anyone able to use this directory can request operator-level reads and any installed controls. Installing the companion is an explicit server-owner action. No authentication token is needed because there is no network endpoint.
+The inspector accepts eight named read operations. Universal discovery and systems add ten general read operations and two audit-only debug-world operations; the optional Create adapter adds one read and four control operations. Requests expire; responses are correlated by request ID and replaced atomically. MCP times out after 10 seconds; a control timeout has an unknown outcome and is not automatically retried. One request at a time may own a bridge directory; a competing client gets an explicit conflict. After a client crash, stop that process before removing `.client-lock`. Restrict filesystem access: anyone able to use this directory can request operator-level reads and any installed controls. Installing the companion is an explicit server-owner action. No authentication token is needed because there is no network endpoint.
 
 ## Validation
 
 Run `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm test` and `npm run test:inspection`. The latter uses Node's built-in test runner and TypeScript stripping, with no npm dependencies. It exercises the real bridge client against the companion in a mocked JVM API environment, source containment, pagination, recipe serialization errors, state transitions and timeout handling. This is not a live NeoForge test.
 
-Before relying on a target ATM10 release, perform this game smoke test:
-
-1. Confirm capabilities and a known vanilla/modded registry ID and tag.
-2. Compare an overridden recipe's returned JSON against the in-game recipe viewer.
-3. Compare chest contents and a side-configured machine's slots/tanks against its UI.
-4. Inspect a supported controller before and after completing its structure.
-5. Compare one player's advancement progress with the advancement UI.
-6. Disconnect/reconnect, query an unloaded chunk, and stop the game while a query is pending; confirm explicit errors rather than stale success.
+An empty world can establish loaded mods, registries, recipe serialization and bridge health without building machines. This change does not require a constructed test world. Per-machine formation, UI equivalence and custom interactions remain unverified until exercised on the target release; mocked tests and discovery alone cannot certify them. See [survival validation](survival.md#validation-and-compatibility-boundary) for the client controller's tested scenarios and limits.

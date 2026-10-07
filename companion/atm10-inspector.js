@@ -3,6 +3,16 @@
 // Local filesystem access to kubejs/export/mcp grants operator-level reads and installed controls.
 // No commands, script evaluation, inventory transfers, chunk loading, or network listener.
 (() => {
+  const base = 'kubejs/export/mcp/';
+  let lastBridgeError = null;
+  let lastRequest = null;
+  function health(status) {
+    try { JsonIO.write(base + 'health.json', { protocol: 1, bridgeVersion: 2, channel: 'server',
+      status: status, observedAt: new Date().toISOString(), lastRequest: lastRequest, error: lastBridgeError }); }
+    catch (error) { console.error('[ATM10 MCP] Cannot write health file: ' + error); }
+  }
+  health('loading');
+  try {
   const Files = Java.loadClass('java.nio.file.Files');
   const Paths = Java.loadClass('java.nio.file.Paths');
   const CopyOption = Java.loadClass('java.nio.file.StandardCopyOption');
@@ -18,9 +28,9 @@
   const ItemStack = Java.loadClass('net.minecraft.world.item.ItemStack');
   const RegistryOps = Java.loadClass('net.minecraft.resources.RegistryOps');
   const JsonOps = Java.loadClass('com.mojang.serialization.JsonOps');
-  const base = 'kubejs/export/mcp/';
   let ticks = 0;
   let lastId = null;
+  let pendingResponse = null, responseExpiresAt = 0;
 
   function array(iterable) {
     const result = [];
@@ -87,8 +97,8 @@
     if (!level.hasChunkAt(pos)) throw new Error('Chunk is not loaded; inspection does not load chunks');
     return { dimension: dimension, level: level, pos: pos, state: level.getBlockState(pos), be: level.getBlockEntity(pos) };
   }
-  function block(server, args) {
-    const target = locateBlock(server, args);
+  function block(server, args, located) {
+    const target = located || locateBlock(server, args);
     const dimension = target.dimension, level = target.level, pos = target.pos;
     const sideName = String(args.side || 'none');
     const side = sideName === 'none' ? null : Direction.byName(sideName);
@@ -225,8 +235,12 @@
     throw new Error('Unknown inspection operation');
   }
 
+  health('ready');
   ServerEvents.tick(event => {
-    if (++ticks % 10 !== 0) return;
+    ticks++;
+    if (ticks % 20 === 0) health('ticking');
+    if (ticks % 2 !== 0) return;
+    if (!flushResponse()) return;
     const path = Paths.get(base + 'request.json');
     if (!Files.exists(path)) return;
     let request;
@@ -235,19 +249,53 @@
       request = JSON.parse(String(JsonIO.readString(path)));
       if (!request || typeof request.id !== 'string' || request.id.length > 64 || request.id === lastId) return;
       lastId = request.id;
+      lastRequest = { id: request.id, operation: request.operation };
       if (request.protocol !== 1 || !Number.isFinite(request.expiresAt) || Date.now() > request.expiresAt || request.expiresAt > Date.now() + 30000) throw new Error('Invalid or expired request');
       const response = { protocol: 1, id: request.id, ok: true, observedAt: new Date().toISOString(), data: handle(event.server, request.operation, request.args || {}) };
       if (JSON.stringify(response).length > 7 * 1024 * 1024) throw new Error('Response too large; request a smaller page');
-      publish(response);
+      pendingResponse = response;
+      responseExpiresAt = request.expiresAt;
+      flushResponse();
     } catch (error) {
-      if (request && request.id) publish({ protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(error) });
-      else console.warn('[ATM10 MCP] Invalid bridge request: ' + error);
+      if (!request && (String(error).includes('NoSuchFileException') || String(error).includes('ENOENT'))) return;
+      lastBridgeError = String(error);
+      if (request && request.id) {
+        pendingResponse = { protocol: 1, id: request.id, ok: false, observedAt: new Date().toISOString(), error: String(error) };
+        responseExpiresAt = Math.min(Number(request.expiresAt) || Date.now(), Date.now() + 30000);
+        flushResponse();
+      } else console.warn('[ATM10 MCP] Invalid bridge request: ' + error);
+      health('error');
     }
   });
+  function flushResponse() {
+    if (!pendingResponse) return true;
+    if (Date.now() > responseExpiresAt) { pendingResponse = null; return true; }
+    try {
+      publish(pendingResponse);
+      pendingResponse = null;
+      lastBridgeError = null;
+      return true;
+    } catch (error) {
+      const message = 'Cannot publish response: ' + error;
+      if (lastBridgeError !== message) console.error('[ATM10 MCP] ' + message);
+      lastBridgeError = message; health('error');
+      return false;
+    }
+  }
   function publish(response) {
     const tmp = base + 'response.tmp';
     JsonIO.write(tmp, response);
     // Atomic visibility: the client never consumes a half-written JSON response.
-    Files.move(Paths.get(tmp), Paths.get(base + 'response.json'), CopyOption.REPLACE_EXISTING, CopyOption.ATOMIC_MOVE);
+    try { Files.move(Paths.get(tmp), Paths.get(base + 'response.json'), CopyOption.REPLACE_EXISTING, CopyOption.ATOMIC_MOVE); }
+    catch (error) {
+      if (!String(error).includes('AtomicMoveNotSupported')) throw error;
+      // Same-directory replacement on filesystems that do not support ATOMIC_MOVE.
+      Files.move(Paths.get(tmp), Paths.get(base + 'response.json'), CopyOption.REPLACE_EXISTING);
+    }
+  }
+  } catch (error) {
+    lastBridgeError = String(error);
+    health('load_error');
+    console.error('[ATM10 MCP] Inspector failed to load: ' + error);
   }
 })();

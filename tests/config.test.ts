@@ -1,6 +1,14 @@
 import test from 'ava';
 import { parseConfig } from '../src/config.js';
 
+test('parses a separate client player bridge directory', t => {
+  const original = process.argv;
+  try {
+    process.argv = ['node', 'script.js', '--player-bridge-dir', '/client/kubejs/export/mcp-player'];
+    t.is(parseConfig().playerBridgeDir, '/client/kubejs/export/mcp-player');
+  } finally { process.argv = original; }
+});
+
 test('parses information-only pack and companion options', (t) => {
   const original = process.argv;
   try {

@@ -5,6 +5,23 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { companionFiles, companionUpdates, installCompanions, normalizeFolder, runProgram } from '../scripts/windows-audit.mjs';
 
+test('player setup uses client_scripts and backs up replacements outside executable folders', async t => {
+  const root = await mkdtemp(join(tmpdir(), 'atm10-client-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await mkdir(join(root, 'companion'));
+  await mkdir(join(root, 'kubejs', 'client_scripts'), { recursive: true });
+  await writeFile(join(root, 'companion', 'atm10-player.js'), '// new client');
+  const target = join(root, 'kubejs', 'client_scripts', 'atm10-player.js');
+  await writeFile(target, '// old client');
+  const updates = await companionUpdates(root, root, true);
+  assert.equal(updates.length, 1);
+  const backup = await installCompanions(root, updates);
+  assert.equal(await readFile(join(backup, 'atm10-player.js'), 'utf8'), '// old client');
+  assert.equal(await readFile(target, 'utf8'), '// new client');
+  assert.deepEqual(await companionUpdates(root, root, true), []);
+  await assert.rejects(readFile(join(root, 'kubejs', 'server_scripts', 'atm10-player.js')), { code: 'ENOENT' });
+});
+
 test('Windows setup preserves scripts and backs up only replaced files outside server_scripts, including Unicode and shell punctuation paths', async t => {
   const temporary = await mkdtemp(join(tmpdir(), 'atm10-audit-'));
   t.after(() => rm(temporary, { recursive: true, force: true }));

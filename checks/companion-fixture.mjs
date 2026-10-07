@@ -5,11 +5,19 @@ import { join, resolve } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
 import vm from 'node:vm';
 const source = stripTypeScriptTypes(await readFile(new URL('../src/inspection/bridge-client.ts', import.meta.url), 'utf8'), { mode: 'transform' });
-const { BridgeClient } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
+export const bridgeURL = `data:text/javascript;base64,${Buffer.from(source + '\n//# sourceURL=bridge-client.fixture.js').toString('base64')}`;
+export const { BridgeClient, diagnoseBridge } = await import(bridgeURL);
+const beforeRemoval = new Map();
 
 export async function temporary(t) {
   const dir = await mkdtemp(join(tmpdir(), 'atm10-inspection-'));
-  t.after(() => rm(dir, { recursive: true, force: true }));
+  const cleanups = [];
+  beforeRemoval.set(dir, cleanups);
+  t.after(async () => {
+    for (const cleanup of cleanups) cleanup();
+    beforeRemoval.delete(dir);
+    await rm(dir, { recursive: true, force: true });
+  });
   return dir;
 }
 export function iterable(values) {
@@ -32,7 +40,10 @@ export async function companion(t, root, extraClasses = {}, server = {}, withCre
   if (withCreate) vm.runInContext(await readFile(new URL('../companion/atm10-create.js', import.meta.url), 'utf8'), context);
   for (const name of extraScripts) vm.runInContext(await readFile(new URL(`../companion/${name}.js`, import.meta.url), 'utf8'), context);
   const timer = setInterval(() => { for (let i = 0; i < 10; i++) tick({ server }); }, 10);
-  t.after(() => clearInterval(timer));
+  // Stop heartbeat writers before removing their directory, including on failed tests.
+  const cleanups = beforeRemoval.get(root);
+  if (cleanups) cleanups.push(() => clearInterval(timer));
+  else t.after(() => clearInterval(timer));
   const directory = join(root, 'kubejs/export/mcp');
   return new BridgeClient(directory, 1500);
 }
