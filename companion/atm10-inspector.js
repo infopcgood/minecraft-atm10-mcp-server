@@ -97,8 +97,8 @@
     if (!level.hasChunkAt(pos)) throw new Error('Chunk is not loaded; inspection does not load chunks');
     return { dimension: dimension, level: level, pos: pos, state: level.getBlockState(pos), be: level.getBlockEntity(pos) };
   }
-  function block(server, args) {
-    const target = locateBlock(server, args);
+  function block(server, args, located) {
+    const target = located || locateBlock(server, args);
     const dimension = target.dimension, level = target.level, pos = target.pos;
     const sideName = String(args.side || 'none');
     const side = sideName === 'none' ? null : Direction.byName(sideName);

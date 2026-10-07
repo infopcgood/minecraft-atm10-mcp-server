@@ -96,13 +96,14 @@ async function build() {
 }
 
 export async function main(argv = process.argv.slice(2)) {
-  const { values } = parseArgs({ args: argv, options: { help: { type: 'boolean', short: 'h' }, 'pack-root': { type: 'string' }, 'player-root': { type: 'string' } } });
+  const { values } = parseArgs({ args: argv, options: { help: { type: 'boolean', short: 'h' }, 'pack-root': { type: 'string' }, 'player-root': { type: 'string' }, 'debug-world': { type: 'boolean' } } });
   if (values.help) {
     console.log(`ATM10 Runtime Audit and optional player setup
 
 Windows: double-click Run-ATM10-Audit.bat
 Linux:   node scripts/windows-audit.mjs --pack-root "/path/to/ATM10"
 Optional: --player-root "/path/to/client/ATM10" installs survival controls.
+Optional: --debug-world scans loaded debug display blocks and samples readers.
 
 Requires Node.js >=22.14 with npm and the complete repository.
 Changed companions are backed up outside executable script folders.
@@ -150,6 +151,8 @@ An empty world is sufficient. Remote inspection needs the actual server folder.`
     try { await build(); } finally { rl.resume(); }
 
     console.log('\n[4/4] Export the runtime audit.');
+    const debugWorld = values['debug-world'] || /^(y|yes)$/i.test((await rl.question('Audit a Minecraft debug world for additional block-state coverage? [y/N]: ')).trim());
+    if (debugWorld) console.log('Enter a debug world and keep it unpaused. The scan covers X/Z 1..128 in loaded chunks; no machines need to be built. Survival control is not enabled by this audit.');
     console.log(changes.length ? 'Restart the game/server now, then enter your world and keep it running.' : 'Start the game/server, enter your world and keep it running.');
     console.log('Stop any MCP client using this server bridge while the export runs.');
     console.log('Wait until the world has finished loading.');
@@ -167,7 +170,7 @@ An empty world is sufficient. Remote inspection needs the actual server folder.`
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
     const output = join(outputDirectory, `atm10-runtime-audit-${stamp}-${randomUUID().slice(0, 8)}.json`);
     rl.pause();
-    await runProgram(process.execPath, [join(repository, 'scripts', 'export-runtime-audit.mjs'), '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'), '--output', output]);
+    await runProgram(process.execPath, [join(repository, 'scripts', 'export-runtime-audit.mjs'), '--bridge-dir', join(root, 'kubejs', 'export', 'mcp'), '--output', output, ...(debugWorld ? ['--debug-world'] : [])]);
     console.log(`\nAudit complete. Share this JSON file together with your ATM10 release:\n${output}`);
   } finally { rl.close(); }
 }

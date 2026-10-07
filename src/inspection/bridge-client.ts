@@ -5,7 +5,7 @@ import { resolve, join, basename, dirname } from 'node:path';
 export type BridgeOperation = 'capabilities' | 'registry' | 'tags' | 'recipes' | 'inventory' | 'block' | 'advancements' | 'world'
   | 'create_inspect' | 'create_speed' | 'create_transmission' | 'create_configure_sequence' | 'create_run_sequence'
   | 'pack_mods' | 'pack_registry' | 'pack_resources' | 'pack_resource' | 'pack_machine' | 'pack_block_data' | 'pack_entity_data' | 'pack_capabilities'
-  | 'systems_network' | 'systems_quests'
+  | 'systems_network' | 'systems_quests' | 'pack_debug_scan' | 'pack_debug_inspect'
   | 'player_state' | 'player_configure' | 'player_move' | 'player_look' | 'player_action' | 'player_select'
   | 'player_interact' | 'player_place' | 'player_keybinds' | 'player_keybind';
 

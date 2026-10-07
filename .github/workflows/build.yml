@@ -46,6 +46,7 @@ jobs:
         node --check companion/atm10-systems.js
         node --check companion/atm10-player.js
         node --check scripts/export-runtime-audit.mjs
+        node --check scripts/debug-world-audit.mjs
         node --check scripts/windows-audit.mjs
 
   windows-audit:
@@ -59,7 +60,7 @@ jobs:
     - name: Build on Windows
       run: npm ci --include=dev
     - name: Launcher setup and path tests
-      run: node --test checks/windows-audit.test.mjs checks/player.test.mjs checks/bridge-health.test.mjs
+      run: node --test checks/windows-audit.test.mjs checks/player.test.mjs checks/bridge-health.test.mjs checks/debug-world.test.mjs
     - name: Batch launcher from a path with spaces and punctuation
       shell: pwsh
       env:

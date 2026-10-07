@@ -13,11 +13,11 @@
   const UUID = Java.loadClass('java.util.UUID');
   const ByteBuffer = Java.loadClass('java.nio.ByteBuffer');
   const UTF8 = Java.loadClass('java.nio.charset.StandardCharsets').UTF_8;
-  const operations = ['pack_mods', 'pack_registry', 'pack_resources', 'pack_resource', 'pack_machine', 'pack_block_data', 'pack_entity_data', 'pack_capabilities'];
+  const operations = ['pack_mods', 'pack_registry', 'pack_resources', 'pack_resource', 'pack_machine', 'pack_block_data', 'pack_entity_data', 'pack_capabilities', 'pack_debug_scan', 'pack_debug_inspect'];
   const tagNames = ['end', 'byte', 'short', 'int', 'long', 'float', 'double', 'byte_array', 'string', 'list', 'compound', 'int_array', 'long_array'];
   function capabilities() {
     return { available: true, operations: operations, completeModpackSupport: false,
-      scope: 'Loaded mod/version discovery, all registries, active server resources, typed serialized block/entity data, registered block capabilities',
+      scope: 'Loaded mod/version discovery, all registries, active server resources, typed serialized block/entity data, registered block capabilities and bounded debug-world observations',
       limits: ['Serialized data excludes transient or unsaved private fields', 'Capability presence does not prove semantic support', 'No chunk/entity loading', 'No arbitrary getter, reflection, script or command execution'] };
   }
   function identity(t) {
@@ -116,7 +116,91 @@
     });
     return result;
   }
+  function inspectMachine(server, t, args, h) {
+    const result = Object.assign(identity(t), { observations: {}, errors: [], completeSupport: false });
+    try { result.observations.standard = h.block(server, args, t); } catch (e) { result.errors.push({ reader: 'standard', error: String(e) }); }
+    if (t.be !== null) {
+      try { result.observations.serialized = browse(t.be.saveWithoutMetadata(server.registryAccess()), Object.assign({}, args, { path: [] }), h); }
+      catch (e) { result.errors.push({ reader: 'serialized', error: String(e) }); }
+    }
+    if (global.atm10McpSystems) {
+      try { result.observations.systems = global.atm10McpSystems.inspect(server, t, args, h); }
+      catch (e) { result.errors.push({ reader: 'systems', error: String(e) }); }
+    }
+    if (global.atm10McpCreate) {
+      try {
+        const create = global.atm10McpCreate.handle(server, 'create_inspect', args, Object.assign({}, h, { locateBlock: () => t }));
+        if (create.supported) result.observations.create = create;
+      } catch (e) { result.errors.push({ reader: 'create', error: String(e) }); }
+    }
+    result.unresolved = 'Uninterpreted saved fields and mod-private/transient state are not certified as operational or formed. Use child paths and capability discovery for more observations.';
+    return result;
+  }
+  function debugLevel(server, args) {
+    const dimension = String(args.dimension || 'minecraft:overworld');
+    const level = server.getLevel(ResourceKey.create(RegistryKeys.DIMENSION, ResourceLocation.parse(dimension)));
+    const Debug = Java.loadClass('net.minecraft.world.level.levelgen.DebugLevelSource');
+    if (level === null || !level.isDebug() || !(level.getChunkSource().getGenerator() instanceof Debug))
+      throw new Error('Debug audit requires a loaded dimension using the Minecraft debug-world generator');
+    return { level: level, dimension: dimension, y: Number(Debug.HEIGHT) };
+  }
+  function debugTarget(world, x, z) {
+    // getChunkNow and the existing block-entity map never request chunk generation
+    // or lazily instantiate a machine behind a synthetic debug block state.
+    const chunk = world.level.getChunkSource().getChunkNow(Math.floor(x / 16), Math.floor(z / 16));
+    if (chunk === null) return null;
+    const BlockPos = Java.loadClass('net.minecraft.core.BlockPos');
+    const pos = new BlockPos(x, world.y, z);
+    return { dimension: world.dimension, level: world.level, pos: pos, state: chunk.getBlockState(pos), be: chunk.getBlockEntities().get(pos) };
+  }
+  function debugScan(server, args, h) {
+    const world = debugLevel(server, args);
+    const x = h.integer(args.x, 1, -29999872, 29999872), z = h.integer(args.z, 1, -29999872, 29999872);
+    const width = h.integer(args.width, 128, 1, 128), depth = h.integer(args.depth, 128, 1, 128);
+    const total = width * depth, offset = h.integer(args.offset, 0, 0, total), limit = h.integer(args.limit, 64, 1, 64);
+    const results = [], missing = new Set(), started = Date.now();
+    let cursor = offset, air = 0, unloaded = 0, errors = 0;
+    // Bound both work and response size on the server tick. A single mod getter
+    // cannot be preempted, so this is a cooperative budget, not a latency promise.
+    while (cursor < total && cursor - offset < 256 && results.length < limit && (cursor === offset || Date.now() - started < 10)) {
+      const px = x + cursor % width, pz = z + Math.floor(cursor / width);
+      cursor++;
+      try {
+        const t = debugTarget(world, px, pz);
+        if (t === null) { unloaded++; missing.add(Math.floor(px / 16) + ',' + Math.floor(pz / 16)); continue; }
+        if (t.state.isAir()) { air++; continue; }
+        const state = String(t.state);
+        results.push(Object.assign(identity(t), { state: state.slice(0, 1024), stateTruncated: state.length > 1024,
+          blockEntityExpected: Boolean(t.state.hasBlockEntity()), blockEntityPresent: t.be !== null }));
+      } catch (e) { errors++; results.push({ x: px, y: world.y, z: pz, error: String(e).slice(0, 2000) }); }
+    }
+    return { source: 'loaded-debug-world', debugWorld: true, dimension: world.dimension,
+      area: { x: x, y: world.y, z: z, width: width, depth: depth }, total: total, offset: offset,
+      nextOffset: cursor < total ? cursor : null, visited: cursor - offset, air: air, unloaded: unloaded,
+      readErrors: errors, unloadedChunks: Array.from(missing), results: results, completeModpackSupport: false };
+  }
+  function debugInspect(server, args, h) {
+    const world = debugLevel(server, args);
+    const x = h.integer(args.x, undefined, -30000000, 30000000), z = h.integer(args.z, undefined, -30000000, 30000000);
+    const t = debugTarget(world, x, z);
+    if (t === null) return { status: 'unloaded', x: x, y: world.y, z: z };
+    if (typeof args.expectedState !== 'string' || String(t.state) !== args.expectedState)
+      return { status: 'changed_since_scan', x: x, y: world.y, z: z, state: String(t.state) };
+    const result = Object.assign(identity(t), { state: String(t.state), status: 'observed', completeSupport: false });
+    if (t.state.hasBlockEntity() && t.be === null)
+      return Object.assign(result, { status: 'missing_block_entity', reason: 'Debug display state has no existing live block entity. No machine was created and its readers were not exercised.' });
+    const readerArgs = Object.assign({}, args, { x: x, y: world.y, z: z, dimension: world.dimension });
+    if (args.readers !== false) {
+      try { result.machine = inspectMachine(server, t, Object.assign({}, readerArgs, { offset: 0, limit: 10 }), h); }
+      catch (e) { result.machine = { error: String(e) }; }
+    }
+    try { result.capabilities = probe(t, readerArgs, h); }
+    catch (e) { result.capabilities = { error: String(e), nextOffset: null, results: [] }; }
+    return result;
+  }
   function handle(server, operation, args, h) {
+    if (operation === 'pack_debug_scan') return debugScan(server, args, h);
+    if (operation === 'pack_debug_inspect') return debugInspect(server, args, h);
     if (operation === 'pack_mods') return mods(args, h);
     if (operation === 'pack_registry') {
       const registries = registryMap(server, h);
@@ -185,24 +269,7 @@
         if (t.be === null) throw new Error('This block has no block entity or serialized block-entity data');
         return Object.assign(identity(t), { source: 'serialized-block-data', semanticStatus: 'uninterpreted', data: browse(t.be.saveWithoutMetadata(server.registryAccess()), args, h) });
       }
-      const result = Object.assign(identity(t), { observations: {}, errors: [], completeSupport: false });
-      try { result.observations.standard = h.block(server, args); } catch (e) { result.errors.push({ reader: 'standard', error: String(e) }); }
-      if (t.be !== null) {
-        try { result.observations.serialized = browse(t.be.saveWithoutMetadata(server.registryAccess()), Object.assign({}, args, { path: [] }), h); }
-        catch (e) { result.errors.push({ reader: 'serialized', error: String(e) }); }
-      }
-      if (global.atm10McpSystems) {
-        try { result.observations.systems = global.atm10McpSystems.inspect(server, t, args, h); }
-        catch (e) { result.errors.push({ reader: 'systems', error: String(e) }); }
-      }
-      if (global.atm10McpCreate) {
-        try {
-          const create = global.atm10McpCreate.handle(server, 'create_inspect', args, h);
-          if (create.supported) result.observations.create = create;
-        } catch (e) { result.errors.push({ reader: 'create', error: String(e) }); }
-      }
-      result.unresolved = 'Uninterpreted saved fields and mod-private/transient state are not certified as operational or formed. Use child paths and capability discovery for more observations.';
-      return result;
+      return inspectMachine(server, t, args, h);
     }
     throw new Error('Unknown pack inspection operation');
   }

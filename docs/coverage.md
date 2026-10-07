@@ -10,6 +10,8 @@ Backups are stored under `kubejs/mcp-backups`, outside the executable script dir
 
 You can also run `Run-ATM10-Audit.bat --pack-root "C:\Games\ATM10"` from a terminal. `--help` prints usage; `ATM10_AUDIT_NO_PAUSE=1` disables the batch file's final pause for automation. The setup itself is interactive.
 
+The helper also offers a [debug-world audit](#debug-world-audit). On Linux, run `node scripts/windows-audit.mjs --pack-root "/path/to/ATM10" --debug-world`. On Windows, add `--debug-world` to the batch command or answer yes to the debug-world prompt. This installs the same three server companions; no additional mod or client player-control script is needed for auditing.
+
 For manual installation:
 
 Copy these files together into the server's `kubejs/server_scripts/`, then restart the server:
@@ -39,6 +41,45 @@ First call `get-data-capabilities`, then `get-mod-coverage`. The latter lists th
 | `get-quest-progress` | Existing FTB team quest/task progress and reward-claim state | No team creation, task submission or reward claims |
 
 Existing recipe, inventory, advancement and world tools continue to work. RecipeManager queries preserve each recipe's codec fields, including unfamiliar serializers. RecipeManager does not cover every special mechanic, such as anvil operations. Resource definitions and local source search help investigate such mechanics, but are not substitutes for their live state or execution rules.
+
+## Debug-world audit
+
+Use Minecraft's built-in **debug-world generator** in your ATM10 instance. The mode inspects its displayed block states without requiring you to construct machines. Update `atm10-inspector.js` and `atm10-universal.js` along with the exporter, restart the server/world, enter the debug world and keep it unpaused. Stop competing MCP/audit processes using the same bridge. An ordinary empty or superflat world is explicitly rejected by this mode; omit `--debug-world` for the original inventory audit.
+
+After building, run:
+
+```bash
+npm run audit:runtime -- --bridge-dir "/path/to/ATM10/kubejs/export/mcp" --debug-world --output atm10-debug-audit.json
+```
+
+The default scan covers the rectangle **X=1..128, Z=1..128** at `DebugLevelSource.HEIGHT` (Y=70 in Minecraft 1.21.1). It reads only chunks already loaded by the game. The bridge neither moves the player nor adds chunk tickets. The report records skipped chunks and counts rather than treating them as empty or supported. A large ATM10 block-state grid extends beyond this bounded area, so this is not an audit of every registered state.
+
+| Report field | What it establishes |
+| --- | --- |
+| `debugWorld.blocks` | Observed IDs, block states, coordinates, existing block-entity classes, per-position errors |
+| `debugWorld.scan` / `unloadedChunks` | Visited positions, air gaps, skipped positions/chunks and read errors |
+| `debugWorld.samples` | Bounded native machine reader results, capability pages, selected sides, nested errors and unknown statuses |
+| `debugWorld.coverage` | Registered versus observed block types, observed states, missing block entities, sample counts and unobserved IDs |
+| `debugWorld.namespaces` | Block type observations and sampled reader errors grouped by namespace; mods without blocks remain in the top-level loaded-mod list |
+| `scanCompleted`, `partial` and truncation flags | Whether the rectangle was traversed and which gaps, limits or reader failures remain |
+
+**A displayed machine block is not necessarily an instantiated machine.** The scanner uses the loaded chunk's existing block-entity map. If a display state expects an entity but none exists, it records that fact and skips the machine/capability readers; it does not create an entity to improve the numbers. Reinspection checks the expected state and loaded chunk again, reporting changed, unloaded or missing-entity samples explicitly. Ordinary blocks without block entities can still expose capabilities.
+
+Samples prefer existing live block entities, then use deterministic block ID/state ordering. Defaults are one state per block type and at most 64 sampled states, on the unsided (`none`) capability view. Formation, standard item/fluid/energy, saved-data, systems and optional Create observations reuse the existing readers. The audit does not invoke Create controls, build multiblocks, fill inventories, start processing, create storage networks or certify survival behavior. Registered capabilities can be present, absent or unknown; absence is not an adapter failure. A mod's own getter can have side effects, so these reads cannot guarantee every third-party implementation is side-effect-free.
+
+For a different area or additional sides, for example:
+
+```bash
+npm run audit:runtime -- --bridge-dir "/path/to/ATM10/kubejs/export/mcp" --debug-world --scan-x 129 --scan-z 1 --scan-width 64 --scan-depth 64 --max-samples 128 --samples-per-block 2 --sides none,north,south,east,west,up,down --output atm10-debug-area2.json
+```
+
+Only already loaded parts of that area contribute observations. Reports can be collected from additional positions if desired; the initial report remains useful without doing so. Advanced options are available in `export-runtime-audit.mjs`; the interactive launcher uses the defaults.
+
+Bounds: each scan dimension is 1–128 blocks, samples 1–256, states per block 1–4. Discovery processes at most 256 positions/64 records per request with a cooperative 10 ms budget. Reader requests inspect one sample/side at a time, with at most 1000 registered capabilities per side. Machine inventory/NBT details use their first 10 entries; their returned cursors indicate more data. Long state strings are marked truncated and not sampled. Individual observations above 64 KiB are omitted, with a 4 MiB total observation budget and bounded error summaries; all omissions are explicit. Native mod getters cannot be interrupted mid-call, so no fixed latency is promised.
+
+If the bridge or exporter fails, the `*-failure.json` file retains collected mod/registry data and completed debug observations alongside diagnostics. Per-reader failures remain in the regular report and set `partial`; a successful process exit does not mean complete modpack compatibility. Use a unique `--output` name for each run. The scan does not audit recipes, quests, mob AI, powered operation, formation transitions or custom gun behavior.
+
+Validation uses the real companion/bridge with mocked Minecraft APIs and the actual exporter CLI. Tests cover skipped chunks, absent block entities, state changes, bounded pagination/sampling, side selection, nested reader errors, large-response omission and partial failure reports. This is not live ATM10 certification. The debug-state registry behavior is documented in the [NeoForge 1.21.1 patch](https://github.com/neoforged/NeoForge/blob/1.21.1/patches/net/minecraft/world/level/levelgen/DebugLevelSource.java.patch).
 
 Examples (one MCP call per object):
 

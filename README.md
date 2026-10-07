@@ -11,6 +11,8 @@ Fork of [yuniko-software/minecraft-mcp-server](https://github.com/yuniko-softwar
 
 **Windows runtime audit:** extract the complete repository, install Node.js 22.14+ with npm, and double-click `Run-ATM10-Audit.bat`. It guides companion setup, builds the server and saves your report in `audits`. See [Windows instructions](docs/coverage.md#install).
 
+**[Debug-world audit](docs/coverage.md#debug-world-audit):** use `--debug-world` to add loaded display-block discovery, bounded machine/capability reader samples and per-namespace coverage gaps. No machine construction is required; missing block entities and unloaded chunks are reported explicitly.
+
 **[Direct Create adapters](docs/create.md)** add kinetic speed/stress inspection, controller speed settings, gearshift/clutch controls, and sequenced gearshift programs. Install the optional `companion/atm10-create.js` alongside the inspector. ComputerCraft is not required.
 
 <a href="https://github.com/yuniko-software/minecraft-mcp-server/actions">
